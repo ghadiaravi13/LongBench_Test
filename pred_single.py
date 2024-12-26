@@ -152,7 +152,7 @@ def load_model_and_tokenizer(path, model_name, device, args):
                 break
         if warning_flag:
             warnings.warn(f"Transformers version {transformers_version} might not be compatible with SnapKV. SnapKV is tested with Transformers version {version_list}.")
-        cache_dir = "../HopFormer/HF_Llama3/HF_cache/"
+        cache_dir = "../HF_Llama3/HF_cache/"
         os.makedirs(cache_dir, exist_ok=True)
 
         # Load the Llama3 7B model and tokenizer
@@ -231,14 +231,14 @@ if __name__ == '__main__':
             data = load_dataset('THUDM/LongBench', f"{dataset}_e", split='test')
             if not os.path.exists(f"pred_e/{model_name}"):
                 os.makedirs(f"pred_e/{model_name}")
-            out_path = f"pred_e/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}.jsonl"
-            logfile = f"pred_e/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}.log"
+            out_path = f"pred_e/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.jsonl"
+            logfile = f"pred_e/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.log"
         else:
             data = load_dataset('THUDM/LongBench', dataset, split='test')
             if not os.path.exists(f"pred/{model_name}"):
                 os.makedirs(f"pred/{model_name}")
-            out_path = f"pred/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}.jsonl"
-            logfile = f"pred/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}.log"
+            out_path = f"pred/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.jsonl"
+            logfile = f"pred/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.log"
         prompt_format = dataset2prompt[dataset]
         max_gen = dataset2maxlen[dataset]
         data_all = [data_sample for data_sample in data]
