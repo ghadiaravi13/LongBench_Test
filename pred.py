@@ -1,159 +1,271 @@
-import os, csv, json
-import argparse
-import time
-from tqdm import tqdm
+import os
 from datasets import load_dataset
-import re
-from openai import OpenAI
-from transformers import AutoTokenizer
-import tiktoken
+import torch
+import json
+from transformers import AutoTokenizer, LlamaTokenizer, LlamaForCausalLM, AutoModelForCausalLM, LlamaConfig
+from tqdm import tqdm
+import numpy as np
+import random
+import argparse
+# from llama_flash_attn_monkey_patch import replace_llama_attn_with_flash_attn
+import torch.distributed as dist
 import torch.multiprocessing as mp
+import warnings
 
-model_map = json.loads(open('config/model2path.json', encoding='utf-8').read())
-maxlen_map = json.loads(open('config/model2maxlen.json', encoding='utf-8').read())
+import logging
+import logging.handlers
+import multiprocessing
+from pathlib import Path
 
-URL = "http://127.0.0.1:8000/v1"
-API_KEY = "token-abc123"
-template_rag = open('prompts/0shot_rag.txt', encoding='utf-8').read()
-template_no_context = open('prompts/0shot_no_context.txt', encoding='utf-8').read()
-template_0shot = open('prompts/0shot.txt', encoding='utf-8').read()
-template_0shot_cot = open('prompts/0shot_cot.txt', encoding='utf-8').read()
-template_0shot_cot_ans = open('prompts/0shot_cot_ans.txt', encoding='utf-8').read()
+def setup_logging(queue):
+    handler = logging.handlers.QueueHandler(queue)
+    root = logging.getLogger()
+    root.setLevel(logging.INFO)
+    root.addHandler(handler)
 
-def query_llm(prompt, model, tokenizer, client=None, temperature=0.5, max_new_tokens=128, stop=None):
-    # truncate
-    max_len = maxlen_map[model]
-    if model in model_map:
-        input_ids = tokenizer.encode(prompt)
-        if len(input_ids) > max_len:
-            input_ids = input_ids[:max_len//2] + input_ids[-max_len//2:]
-            prompt = tokenizer.decode(input_ids, skip_special_tokens=True)
-    else:
-        input_ids = tokenizer.encode(prompt, disallowed_special=())
-        if len(input_ids) > max_len:
-            input_ids = input_ids[:max_len//2] + input_ids[-max_len//2:]
-            prompt = tokenizer.decode(input_ids)
-    tries = 0
-    if model in model_map:
-        model = model_map[model]
-    while tries < 5:
-        tries += 1
-        try:
-            completion = client.chat.completions.create(
-                model=model,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=temperature,
-                max_tokens=max_new_tokens,
-            )
-            return completion.choices[0].message.content
-        except KeyboardInterrupt as e:
-            raise e
-        except Exception as e:
-            print("Error Occurs: \"%s\"        Retry ..."%(str(e)))
-            time.sleep(1)
-    else:
-        print("Max tries. Failed.")
-        return ''
+def listener_process(queue, logfile):
+    handler = logging.FileHandler(logfile)
+    listener = logging.handlers.QueueListener(queue, handler)
+    listener.start()
+    try:
+        while True:
+            record = queue.get()
+            if record is None:  # We send None to signal the listener to stop
+                break
+            logger = logging.getLogger(record.name)
+            logger.handle(record)
+    finally:
+        listener.stop()
 
-def extract_answer(response):
-    response = response.replace('*', '')
-    match = re.search(r'The correct answer is \(([A-D])\)', response)
-    if match:
-        return match.group(1)
-    else:
-        match = re.search(r'The correct answer is ([A-D])', response)
-        if match:
-            return match.group(1)
-        else:
-            return None
-
-def get_pred(data, args, fout):
-    model = args.model
-    if "gpt" in model or "o1" in model:
-        tokenizer = tiktoken.encoding_for_model("gpt-4o-2024-08-06")
-    else:
-        tokenizer = AutoTokenizer.from_pretrained(model_map[model], trust_remote_code=True)
-    client = OpenAI(
-        base_url=URL,
-        api_key=API_KEY
-    )
-    for item in tqdm(data):
-        context = item['context']
-        if args.rag > 0:
-            template = template_rag
-            retrieved = item["retrieved_context"][:args.rag]
-            retrieved = sorted(retrieved, key=lambda x: x['c_idx'])
-            context = '\n\n'.join([f"Retrieved chunk {idx+1}: {x['content']}" for idx, x in enumerate(retrieved)])
-        elif args.no_context:
-            template = template_no_context
-        elif args.cot:
-            template = template_0shot_cot
-        else:
-            template = template_0shot
-        prompt = template.replace('$DOC$', context.strip()).replace('$Q$', item['question'].strip()).replace('$C_A$', item['choice_A'].strip()).replace('$C_B$', item['choice_B'].strip()).replace('$C_C$', item['choice_C'].strip()).replace('$C_D$', item['choice_D'].strip())
-        if args.cot:
-            output = query_llm(prompt, model, tokenizer, client, temperature=0.1, max_new_tokens=1024)
-        else:
-            output = query_llm(prompt, model, tokenizer, client, temperature=0.1, max_new_tokens=128)
-        if output == '':
-            continue
-        if args.cot: # extract answer
-            response = output.strip()
-            item['response_cot'] = response
-            prompt = template_0shot_cot_ans.replace('$DOC$', context.strip()).replace('$Q$', item['question'].strip()).replace('$C_A$', item['choice_A'].strip()).replace('$C_B$', item['choice_B'].strip()).replace('$C_C$', item['choice_C'].strip()).replace('$C_D$', item['choice_D'].strip()).replace('$COT$', response)
-            output = query_llm(prompt, model, tokenizer, client, temperature=0.1, max_new_tokens=128)
-            if output == '':
-                continue
-        response = output.strip()
-        item['response'] = response
-        item['pred'] = extract_answer(response)
-        item['judge'] = item['pred'] == item['answer']
-        item['context'] = context[:1000]
-        fout.write(json.dumps(item, ensure_ascii=False) + '\n')
-        fout.flush()
-
-def main():
-    os.makedirs(args.save_dir, exist_ok=True)
-    print(args)
-    if args.rag > 0:
-        out_file = os.path.join(args.save_dir, args.model.split("/")[-1] + f"_rag_{str(args.rag)}.jsonl")
-    elif args.no_context:
-        out_file = os.path.join(args.save_dir, args.model.split("/")[-1] + "_no_context.jsonl")
-    elif args.cot:
-        out_file = os.path.join(args.save_dir, args.model.split("/")[-1] + "_cot.jsonl")
-    else:
-        out_file = os.path.join(args.save_dir, args.model.split("/")[-1] + ".jsonl")
-
-    dataset = load_dataset('THUDM/LongBench-v2', split='train') # dataset = json.load(open('data.json', 'r', encoding='utf-8'))
-    data_all = [{"_id": item["_id"], "domain": item["domain"], "sub_domain": item["sub_domain"], "difficulty": item["difficulty"], "length": item["length"], "question": item["question"], "choice_A": item["choice_A"], "choice_B": item["choice_B"], "choice_C": item["choice_C"], "choice_D": item["choice_D"], "answer": item["answer"], "context": item["context"]} for item in dataset]
-
-    # cache
-    has_data = {}
-    if os.path.exists(out_file):
-        with open(out_file, encoding='utf-8') as f:
-            has_data = {json.loads(line)["_id"]: 0 for line in f}
-    fout = open(out_file, 'a', encoding='utf-8')
-    data = []
-    for item in data_all:
-        if item["_id"] not in has_data:
-            data.append(item)
-
-    data_subsets = [data[i::args.n_proc] for i in range(args.n_proc)]
-    processes = []
-    for rank in range(args.n_proc):
-        p = mp.Process(target=get_pred, args=(data_subsets[rank], args, fout))
-        p.start()
-        processes.append(p)
-    for p in processes:
-        p.join()
-
-if __name__ == "__main__":
+def parse_args(args=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--save_dir", "-s", type=str, default="results")
-    parser.add_argument("--model", "-m", type=str, default="GLM-4-9B-Chat")
-    parser.add_argument("--cot", "-cot", action='store_true') # set to True if using COT
-    parser.add_argument("--no_context", "-nc", action='store_true') # set to True if using no context (directly measuring memorization)
-    parser.add_argument("--rag", "-rag", type=int, default=0) # set to 0 if RAG is not used, otherwise set to N when using top-N retrieved context
-    parser.add_argument("--n_proc", "-n", type=int, default=16)
-    args = parser.parse_args()
-    main()
+    parser.add_argument('--model', type=str, default=None, choices=["llama3.1-8b-instruct","llama2-7b-chat-4k", "llama-2-7B-32k-instruct", "longchat-v1.5-7b-32k", "xgen-7b-8k", "internlm-7b-8k", "chatglm2-6b", "chatglm2-6b-32k", "chatglm3-6b-32k", "vicuna-v1.5-7b-16k"])
+    parser.add_argument('--dataset', type=str, default="qasper")
+    parser.add_argument('--e', action='store_true', help="Evaluate on LongBench-E")
+    parser.add_argument("--window_size", "-ws", type=int, default=3, help="Window size for HopFormer")
+    parser.add_argument("--sim_threshold", "-st", type=float, default=20.0, help="Similarity threshold for HopFormer")
+    parser.add_argument("--num_attn_sinks", "-snks", type=float, default=3, help="Similarity threshold for HopFormer")
+    parser.add_argument("--gumbel", "-gbl", action='store_true', help="use gumbel softmax")
+    parser.add_argument("--no_hopf", action='store_true', help="Disable HopFormer")  # Updated line
+    parser.add_argument("--save_wts", action='store_true', help="Save attn wts")  # Updated line
+    return parser.parse_args(args)
+
+# This is the customized building prompt for chat models
+def build_chat(tokenizer, prompt, model_name):
+    if "chatglm3" in model_name:
+        prompt = tokenizer.build_chat_input(prompt)
+    elif "chatglm" in model_name:
+        prompt = tokenizer.build_prompt(prompt)
+    elif "longchat" in model_name or "vicuna" in model_name:
+        from fastchat.model import get_conversation_template
+        conv = get_conversation_template("vicuna")
+        conv.append_message(conv.roles[0], prompt)
+        conv.append_message(conv.roles[1], None)
+        prompt = conv.get_prompt()
+    elif "llama2" in model_name:
+        prompt = f"[INST]{prompt}[/INST]"
+    elif "xgen" in model_name:
+        header = (
+            "A chat between a curious human and an artificial intelligence assistant. "
+            "The assistant gives helpful, detailed, and polite answers to the human's questions.\n\n"
+        )
+        prompt = header + f" ### Human: {prompt}\n###"
+    elif "internlm" in model_name:
+        prompt = f"<|User|>:{prompt}<eoh>\n<|Bot|>:"
+    return prompt
+
+def post_process(response, model_name):
+    if "xgen" in model_name:
+        response = response.strip().replace("Assistant:", "")
+    elif "internlm" in model_name:
+        response = response.split("<eoa>")[0]
+    return response
+
+def get_pred(rank, world_size, data, max_length, max_gen, prompt_format, dataset, device, model_name, model2path, out_path, args, queue):
+    device = torch.device(f'cuda:{rank}')
+    model, tokenizer = load_model_and_tokenizer(model2path[model_name], model_name, device, args)
+    setup_logging(queue)
+    logger = logging.getLogger(__name__)
+    for json_obj in tqdm(data):
+        prompt = prompt_format.format(**json_obj)
+        # truncate to fit max_length (we suggest truncate in the middle, since the left and right side may contain crucial instructions)
+        tokenized_prompt = tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
+        if "chatglm3" in model_name:
+            tokenized_prompt = tokenizer(prompt, truncation=False, return_tensors="pt", add_special_tokens=False).input_ids[0]
+        if len(tokenized_prompt) > max_length:
+            half = int(max_length/2)
+            prompt = tokenizer.decode(tokenized_prompt[:half], skip_special_tokens=True)+tokenizer.decode(tokenized_prompt[-half:], skip_special_tokens=True)
+        if dataset not in ["trec", "triviaqa", "samsum", "lsht", "lcc", "repobench-p"]: # chat models are better off without build prompts on these tasks
+            prompt = build_chat(tokenizer, prompt, model_name)
+        if "chatglm3" in model_name:
+            if dataset in ["trec", "triviaqa", "samsum", "lsht", "lcc", "repobench-p"]:
+                input = tokenizer(prompt, truncation=False, return_tensors="pt").to(device)
+            else:
+                input = prompt.to(device)
+        else:
+            input = tokenizer(prompt, truncation=False, return_tensors="pt").to(device)
+        context_length = input.input_ids.shape[-1]
+        if dataset == "samsum": # prevent illegal output on samsum (model endlessly repeat "\nDialogue"), might be a prompting issue
+            output = model.generate(
+                **input,
+                max_new_tokens=max_gen,
+                num_beams=1,
+                do_sample=False,
+                temperature=1.0,
+                min_length=context_length+1,
+                eos_token_id=[tokenizer.eos_token_id, tokenizer.encode("\n", add_special_tokens=False)[-1]],
+            )[0]
+        else:
+            output = model.generate(
+                **input,
+                max_new_tokens=max_gen,
+                num_beams=1,
+                do_sample=False,
+                temperature=1.0,
+            )[0]
+        pred = tokenizer.decode(output[context_length:], skip_special_tokens=True)
+        pred = post_process(pred, model_name)
+        with open(out_path, "a", encoding="utf-8") as f:
+            json.dump({"pred": pred, "answers": json_obj["answers"], "all_classes": json_obj["all_classes"], "length": json_obj["length"]}, f, ensure_ascii=False)
+            f.write('\n')
+    dist.destroy_process_group()
+
+def seed_everything(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
+    torch.cuda.manual_seed_all(seed)
+
+from importlib.metadata import version
+def check_version():
+    try:
+        transformers_version = version("transformers")
+    except Exception as e:
+        print(f"Transformers not installed: {e}")
+    return transformers_version
+
+def load_model_and_tokenizer(path, model_name, device, args):
+    if "chatglm" in model_name or "internlm" in model_name or "xgen" in model_name:
+        tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True)
+        model = AutoModelForCausalLM.from_pretrained(path, trust_remote_code=True, torch_dtype=torch.bfloat16).to(device)
+    elif "llama" in model_name:
+        # replace_llama_attn_with_flash_attn()
+        # tokenizer = LlamaTokenizer.from_pretrained(path)
+        # model = LlamaForCausalLM.from_pretrained(path, torch_dtype=torch.bfloat16).to(device)
+        # Set cache directory
+        transformers_version = check_version()
+        version_list = ['4.45']
+        warning_flag = True
+        for version in version_list:
+            if version in transformers_version:
+                warning_flag = False
+                break
+        if warning_flag:
+            warnings.warn(f"Transformers version {transformers_version} might not be compatible with SnapKV. SnapKV is tested with Transformers version {version_list}.")
+        cache_dir = "../HopFormer/HF_Llama3/HF_cache/"
+        os.makedirs(cache_dir, exist_ok=True)
+
+        # Load the Llama3 7B model and tokenizer
+        # model_name = "meta-llama/Llama-3.1-8B-Instruct"
+        tokenizer = AutoTokenizer.from_pretrained(path, cache_dir=cache_dir)
+
+        # Create a custom configuration with HopFormer parameters
+        config = LlamaConfig.from_pretrained(path, cache_dir=cache_dir)
+        config._attn_implementation = "eager"
+        config.hopformer = None if args.no_hopf else {
+            'window_size': int(args.window_size),
+            'sim_threshold': int(args.sim_threshold),
+            'softmax': 'gumbel' if args.gumbel else 'normal',
+            'num_attn_sinks': int(args.num_attn_sinks)
+        }
+
+        # Load the model with the custom configuration
+        model = AutoModelForCausalLM.from_pretrained(
+            path,
+            config=config,
+            torch_dtype=torch.float16,
+            cache_dir=cache_dir).to(device)
+        
+    elif "longchat" in model_name or "vicuna" in model_name:
+        from fastchat.model import load_model
+        replace_llama_attn_with_flash_attn()
+        model, _ = load_model(
+            path,
+            device='cpu',
+            num_gpus=0,
+            load_8bit=False,
+            cpu_offloading=False,
+            debug=False,
+        )
+        model = model.to(device)
+        model = model.bfloat16()
+        tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True, use_fast=False)
+    model = model.eval()
+    return model, tokenizer
+
+if __name__ == '__main__':
+    seed_everything(42)
+    args = parse_args()
+    world_size = torch.cuda.device_count()
+    mp.set_start_method('spawn', force=True)
+
+    model2path = json.load(open("config/model2path.json", "r"))
+    model2maxlen = json.load(open("config/model2maxlen.json", "r"))
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    model_name = args.model
+    # define your model
+    max_length = model2maxlen[model_name]
+    if args.e:
+        datasets = ["passage_retrieval_en"] #["qasper", "multifieldqa_en", "hotpotqa", "2wikimqa", "gov_report", "multi_news", \
+            #"trec", "triviaqa", "samsum", "passage_count", "passage_retrieval_en", "lcc", "repobench-p"]
+    else:
+        datasets = ["narrativeqa", "qasper", "multifieldqa_en", "multifieldqa_zh", "hotpotqa", "2wikimqa", "musique", \
+                    "dureader", "gov_report", "qmsum", "multi_news", "vcsum", "trec", "triviaqa", "samsum", "lsht", \
+                    "passage_count", "passage_retrieval_en", "passage_retrieval_zh", "lcc", "repobench-p"]
+    # we design specific prompt format and max generation length for each task, feel free to modify them to optimize model output
+    dataset2prompt = json.load(open("config/dataset2prompt.json", "r"))
+    dataset2maxlen = json.load(open("config/dataset2maxlen.json", "r"))
+    # predict on each dataset
+    if not os.path.exists("pred"):
+        os.makedirs("pred")
+    if not os.path.exists("pred_e"):
+        os.makedirs("pred_e")
+    for dataset in [args.dataset]:
+        assert dataset in datasets, "Unknown Dataset Error!"
+        if args.e:
+            data = load_dataset('THUDM/LongBench', f"{dataset}_e", split='test')
+            if not os.path.exists(f"pred_e/{model_name}"):
+                os.makedirs(f"pred_e/{model_name}")
+            out_path = f"pred_e/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}.jsonl"
+            logfile = f"pred_e/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}.log"
+        else:
+            data = load_dataset('THUDM/LongBench', dataset, split='test')
+            if not os.path.exists(f"pred/{model_name}"):
+                os.makedirs(f"pred/{model_name}")
+            out_path = f"pred/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}.jsonl"
+            logfile = f"pred/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}.log"
+        prompt_format = dataset2prompt[dataset]
+        max_gen = dataset2maxlen[dataset]
+        data_all = [data_sample for data_sample in data]
+        data_subsets = [data_all[i::world_size] for i in range(world_size)]
+        
+        import logging
+        log_queue = mp.Queue()
+        listener = mp.Process(target=listener_process, args=(log_queue, logfile))
+        listener.start()
+
+        processes = []
+        for rank in range(world_size):
+            p = mp.Process(target=get_pred, args=(rank, world_size, data_subsets[rank], max_length, \
+                        max_gen, prompt_format, dataset, device, model_name, model2path, out_path, args, log_queue))
+            p.start()
+            processes.append(p)
+        for p in processes:
+            p.join()
+        log_queue.put_nowait(None)
+        listener.join()
+        log_queue.close()  # Close the queue
+        log_queue.join_thread()  # Ensure the queue is properly joined

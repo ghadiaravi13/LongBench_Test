@@ -1,0 +1,82 @@
+{
+    "2wikimqa_ws3_st20.0_snks3_hopf_False": {
+        "0-4k": 18.96,
+        "4-8k": 15.18,
+        "8k+": 11.81
+    },
+    "passage_retrieval_en_ws3_st20.0_snks3_hopf_False": {
+        "0-4k": 97.29,
+        "4-8k": 77.82,
+        "8k+": 52.76
+    },
+    "passage_retrieval_en_ws200_st0.0_snks0.0_hopf_True": {
+        "0-4k": 33.34,
+        "4-8k": 26.43,
+        "8k+": 13.09
+    },
+    "qasper_ws1_st220.0_snks0.0_hopf_True": {
+        "0-4k": 11.37,
+        "4-8k": 9.63,
+        "8k+": 5.97
+    },
+    "hotpotqa_ws20_st10.0_snks3_hopf_True": {
+        "0-4k": 17.7,
+        "4-8k": 13.72,
+        "8k+": 14.82
+    },
+    "2wikimqa_ws20_st10.0_snks0.0_hopf_True": {
+        "0-4k": 18.25,
+        "4-8k": 15.54,
+        "8k+": 10.18
+    },
+    "qasper_ws20_st10.0_snks3_hopf_True": {
+        "0-4k": 10.55,
+        "4-8k": 10.28,
+        "8k+": 5.38
+    },
+    "hotpotqa_ws200_st0.0_snks0.0_hopf_True": {
+        "0-4k": 5.05,
+        "4-8k": 1.77,
+        "8k+": 2.74
+    },
+    "2wikimqa_ws1_st220.0_snks0.0_hopf_True": {
+        "0-4k": 17.63,
+        "4-8k": 13.97,
+        "8k+": 10.96
+    },
+    "qasper_ws3_st20.0_snks3_hopf_False": {
+        "0-4k": 13.08,
+        "4-8k": 11.63,
+        "8k+": 7.19
+    },
+    "hotpotqa_ws3_st20.0_snks3_hopf_False": {
+        "0-4k": 17.3,
+        "4-8k": 15.05,
+        "8k+": 14.69
+    },
+    "passage_retrieval_en_ws1_st220.0_snks0.0_hopf_True": {
+        "0-4k": 96.79,
+        "4-8k": 77.15,
+        "8k+": 52.22
+    },
+    "passage_retrieval_en_ws20_st10.0_snks3_hopf_True": {
+        "0-4k": 96.33,
+        "4-8k": 75.44,
+        "8k+": 51.61
+    },
+    "hotpotqa_ws1_st220.0_snks0.0_hopf_True": {
+        "0-4k": 17.22,
+        "4-8k": 15.3,
+        "8k+": 14.4
+    },
+    "2wikimqa_ws200_st0.0_snks0.0_hopf_True": {
+        "0-4k": 5.09,
+        "4-8k": 3.34,
+        "8k+": 2.01
+    },
+    "qasper_ws200_st0.0_snks0.0_hopf_True": {
+        "0-4k": 1.56,
+        "4-8k": 2.08,
+        "8k+": 0.44
+    }
+}

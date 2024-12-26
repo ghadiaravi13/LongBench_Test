@@ -1,0 +1,132 @@
+{
+    "2wikimqa_ws32_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 32.55,
+        "4-8k": 25.64,
+        "8k+": 18.71
+    },
+    "lcc_ws32_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 56.37,
+        "4-8k": 55.65,
+        "8k+": 48.73
+    },
+    "hotpotqa_ws5_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 33.7,
+        "4-8k": 27.22,
+        "8k+": 22.01
+    },
+    "lcc_ws3_st20.0_snks0_hopf_False_type_max_fused": {
+        "0-4k": 58.09,
+        "4-8k": 58.2,
+        "8k+": 48.79
+    },
+    "qasper_ws5_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 17.78,
+        "4-8k": 19.55,
+        "8k+": 11.41
+    },
+    "2wikimqa_ws32_st31.0_snks0_hopf_True_type_max_fused_len32000": {
+        "0-4k": 32.95,
+        "4-8k": 26.24,
+        "8k+": 15.26
+    },
+    "hotpotqa_ws32_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 46.15,
+        "4-8k": 32.89,
+        "8k+": 26.29
+    },
+    "hotpotqa_ws32_st31.0_snks0_hopf_True_type_max_fused_len32000": {
+        "0-4k": 41.58,
+        "4-8k": 37.33,
+        "8k+": 34.49
+    },
+    "hotpotqa_ws3_st20.0_snks0_hopf_False_type_max_fused": {
+        "0-4k": 46.04,
+        "4-8k": 34.71,
+        "8k+": 30.75
+    },
+    "multi_news_ws3_st20.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 18.69,
+        "4-8k": 18.4,
+        "8k+": NaN
+    },
+    "lcc_ws5_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 44.87,
+        "4-8k": 45.32,
+        "8k+": 38.21
+    },
+    "multi_news_ws3_st20.0_snks0_hopf_False_type_max_fused": {
+        "0-4k": 27.96,
+        "4-8k": 25.32,
+        "8k+": 24.45
+    },
+    "qasper_ws32_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 28.71,
+        "4-8k": 25.64,
+        "8k+": 17.42
+    },
+    "qasper_ws32_st31.0_snks0_hopf_True_type_max_fused_len32000": {
+        "0-4k": 28.49,
+        "4-8k": 27.12,
+        "8k+": 12.97
+    },
+    "passage_retrieval_en_ws3_st20.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 94.17,
+        "4-8k": 55.5,
+        "8k+": 44.33
+    },
+    "2wikimqa_ws3_st20.0_snks0_hopf_False_type_max_fused": {
+        "0-4k": 34.99,
+        "4-8k": 26.19,
+        "8k+": 22.13
+    },
+    "passage_retrieval_en_ws32_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 97.5,
+        "4-8k": 67.33,
+        "8k+": 48.0
+    },
+    "multi_news_ws32_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 26.94,
+        "4-8k": 23.83,
+        "8k+": 22.81
+    },
+    "passage_retrieval_en_ws32_st31.0_snks0_hopf_True_type_max_fused_len32000": {
+        "0-4k": 97.5,
+        "4-8k": 89.0,
+        "8k+": 87.0
+    },
+    "qasper_ws3_st20.0_snks0_hopf_False_type_max_fused": {
+        "0-4k": 32.06,
+        "4-8k": 26.26,
+        "8k+": 17.64
+    },
+    "2wikimqa_ws5_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 22.56,
+        "4-8k": 17.55,
+        "8k+": 13.55
+    },
+    "passage_retrieval_en_ws5_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 92.83,
+        "4-8k": 60.17,
+        "8k+": 47.0
+    },
+    "multi_news_ws32_st31.0_snks0_hopf_True_type_max_fused_len32000": {
+        "0-4k": 26.94,
+        "4-8k": 23.56,
+        "8k+": 22.53
+    },
+    "passage_retrieval_en_ws3_st20.0_snks0_hopf_False_type_max_fused": {
+        "0-4k": 97.67,
+        "4-8k": 67.33,
+        "8k+": 47.0
+    },
+    "lcc_ws32_st31.0_snks0_hopf_True_type_max_fused_len32000": {
+        "0-4k": 55.97,
+        "4-8k": 59.69,
+        "8k+": 57.06
+    },
+    "multi_news_ws5_st31.0_snks0_hopf_True_type_max_fused": {
+        "0-4k": 21.72,
+        "4-8k": 20.03,
+        "8k+": 20.03
+    }
+}
