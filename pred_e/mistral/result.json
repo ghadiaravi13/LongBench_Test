@@ -1,4 +1,9 @@
 {
+    "multi_news_ws3_st20.0_snks0_hopf_False_type_max_fused_len32000_gblFalse": {
+        "0-4k": 27.93,
+        "4-8k": 25.98,
+        "8k+": 24.57
+    },
     "2wikimqa_ws32_st31.0_snks0_hopf_True_type_max_fused": {
         "0-4k": 32.55,
         "4-8k": 25.64,
@@ -13,6 +18,11 @@
         "0-4k": 33.7,
         "4-8k": 27.22,
         "8k+": 22.01
+    },
+    "passage_retrieval_en_ws3_st20.0_snks0_hopf_False_type_max_fused_len32000_gblFalse": {
+        "0-4k": 97.67,
+        "4-8k": 88.5,
+        "8k+": 87.0
     },
     "lcc_ws3_st20.0_snks0_hopf_False_type_max_fused": {
         "0-4k": 58.09,
@@ -33,6 +43,11 @@
         "0-4k": 46.15,
         "4-8k": 32.89,
         "8k+": 26.29
+    },
+    "hotpotqa_ws3_st20.0_snks0_hopf_False_type_max_fused_len32000_gblFalse": {
+        "0-4k": 44.74,
+        "4-8k": 40.21,
+        "8k+": 41.69
     },
     "hotpotqa_ws32_st31.0_snks0_hopf_True_type_max_fused_len32000": {
         "0-4k": 41.58,
@@ -124,9 +139,24 @@
         "4-8k": 59.69,
         "8k+": 57.06
     },
+    "lcc_ws3_st20.0_snks0_hopf_False_type_max_fused_len32000_gblFalse": {
+        "0-4k": 57.32,
+        "4-8k": 62.7,
+        "8k+": 58.15
+    },
+    "qasper_ws3_st20.0_snks0_hopf_False_type_max_fused_len32000_gblFalse": {
+        "0-4k": 31.8,
+        "4-8k": 29.22,
+        "8k+": 16.41
+    },
     "multi_news_ws5_st31.0_snks0_hopf_True_type_max_fused": {
         "0-4k": 21.72,
         "4-8k": 20.03,
         "8k+": 20.03
+    },
+    "2wikimqa_ws3_st20.0_snks0_hopf_False_type_max_fused_len32000_gblFalse": {
+        "0-4k": 36.23,
+        "4-8k": 27.59,
+        "8k+": 17.25
     }
 }

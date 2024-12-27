@@ -34,6 +34,11 @@
         "4-8k": 13.65,
         "8k+": 14.12
     },
+    "qasper_ws3_st20.0_snks0_hopf_False_type_max_fused_len128000_gblFalse": {
+        "0-4k": 12.85,
+        "4-8k": 11.08,
+        "8k+": 10.43
+    },
     "2wikimqa_ws32_st31.0_snks0_hopf_True_type_max_fused_len128000": {
         "0-4k": 17.65,
         "4-8k": 16.23,
@@ -54,6 +59,11 @@
         "4-8k": 51.65,
         "8k+": 56.9
     },
+    "2wikimqa_ws3_st20.0_snks0_hopf_False_type_max_fused_len128000_gblFalse": {
+        "0-4k": 18.97,
+        "4-8k": 17.04,
+        "8k+": 10.7
+    },
     "multi_news_ws3_st20.0_snks0_hopf_False_type_max_fused": {
         "0-4k": 27.26,
         "4-8k": 25.97,
@@ -63,6 +73,11 @@
         "0-4k": 11.86,
         "4-8k": 9.69,
         "8k+": 5.43
+    },
+    "passage_retrieval_en_ws3_st20.0_snks0_hopf_False_type_max_fused_len128000_gblFalse": {
+        "0-4k": 97.29,
+        "4-8k": 99.23,
+        "8k+": 94.54
     },
     "multi_news_ws32_st31.0_snks0_hopf_True_type_max_fused_len128000": {
         "0-4k": 26.15,
@@ -89,6 +104,11 @@
         "4-8k": 24.08,
         "8k+": 22.87
     },
+    "lcc_ws3_st20.0_snks0_hopf_False_type_max_fused_len128000_gblFalse": {
+        "0-4k": 66.1,
+        "4-8k": 71.84,
+        "8k+": 63.06
+    },
     "qasper_ws3_st20.0_snks0_hopf_False_type_max_fused": {
         "0-4k": 12.83,
         "4-8k": 11.56,
@@ -103,6 +123,11 @@
         "0-4k": 97.45,
         "4-8k": 98.73,
         "8k+": 95.72
+    },
+    "hotpotqa_ws3_st20.0_snks0_hopf_False_type_max_fused_len128000_gblFalse": {
+        "0-4k": 17.31,
+        "4-8k": 18.09,
+        "8k+": 18.01
     },
     "2wikimqa_ws5_st31.0_snks0_hopf_True_type_max_fused": {
         "0-4k": 15.22,
@@ -128,6 +153,11 @@
         "0-4k": 14.4,
         "4-8k": 12.0,
         "8k+": 10.76
+    },
+    "multi_news_ws3_st20.0_snks0_hopf_False_type_max_fused_len128000_gblFalse": {
+        "0-4k": 27.22,
+        "4-8k": 26.16,
+        "8k+": 24.47
     },
     "multi_news_ws5_st31.0_snks0_hopf_True_type_max_fused": {
         "0-4k": 21.65,
