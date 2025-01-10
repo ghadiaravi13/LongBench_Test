@@ -243,6 +243,13 @@ if __name__ == '__main__':
         prompt_format = dataset2prompt[dataset]
         max_gen = dataset2maxlen[dataset]
         data_all = [data_sample for data_sample in data]
+        with open(out_path, "r", encoding="utf-8") as f:
+            lines = len(f.readlines())
+            if(lines==len(data_all)):
+                print(f"Skipping {dataset}\n")
+                continue
+            else:
+                data_all = data_all[lines:]
         # data_subsets = [data_all[i::world_size] for i in range(world_size)]
         
         # import logging
