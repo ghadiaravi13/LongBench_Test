@@ -7,6 +7,7 @@ from tqdm import tqdm
 import numpy as np
 import random
 import argparse
+import warnings
 # from llama_flash_attn_monkey_patch import replace_llama_attn_with_flash_attn
 import torch.distributed as dist
 import torch.multiprocessing as mp
@@ -152,7 +153,7 @@ def load_model_and_tokenizer(path, model_name, device, args):
                 break
         if warning_flag:
             warnings.warn(f"Transformers version {transformers_version} might not be compatible with SnapKV. SnapKV is tested with Transformers version {version_list}.")
-        cache_dir = "../HF_Llama3/HF_cache/"
+        cache_dir = "/work/10198/ghadiaravi13/ls6/HopFormer/HF_Llama3/HF_cache"
         os.makedirs(cache_dir, exist_ok=True)
 
         # Load the Llama3 7B model and tokenizer
@@ -242,6 +243,13 @@ if __name__ == '__main__':
         prompt_format = dataset2prompt[dataset]
         max_gen = dataset2maxlen[dataset]
         data_all = [data_sample for data_sample in data]
+        with open(out_path, "r", encoding="utf-8") as f:
+            lines = len(f.readlines())
+            if(lines==len(data_all)):
+                print(f"Skipping {dataset}\n")
+                continue
+            else:
+                data_all = data_all[lines:]
         # data_subsets = [data_all[i::world_size] for i in range(world_size)]
         
         # import logging
