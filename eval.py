@@ -71,7 +71,10 @@ def scorer(dataset, predictions, answers, all_classes):
         if dataset in ["trec", "triviaqa", "samsum", "lsht"]:
             prediction = prediction.lstrip('\n').split('\n')[0]
         for ground_truth in ground_truths:
-            score = max(score, dataset2metric[dataset](prediction, ground_truth, all_classes=all_classes))
+            try:
+                score = max(score, dataset2metric[dataset](prediction, ground_truth, all_classes=all_classes))
+            except IndexError:
+                score = 0.
         total_score += score
     return round(100 * total_score / len(predictions), 2)
 
@@ -89,11 +92,16 @@ if __name__ == '__main__':
             continue
         predictions, answers, lengths = [], [], []
         dataset = ".".join(filename.split('.')[:-1])
-        if "passage_" in filename:
+        if "passage_re" in filename:
             dataset_name = "passage_retrieval_en"
+        elif "passage_co" in filename:
+            dataset_name = "passage_count"
         elif "multi_news" in filename:
             dataset_name = "multi_news"
+        elif "multi" in filename:
+            dataset_name = "_".join(filename.split("_")[:2])
         else: dataset_name = dataset.split('_')[0]
+        print(filename)
         with open(f"{path}{filename}", "r", encoding="utf-8") as f:
             for line in f:
                 data = json.loads(line)
