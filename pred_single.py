@@ -18,7 +18,7 @@ from pathlib import Path
 
 def parse_args(args=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model', type=str, default=None, choices=["mistral","qwen-2.5-7b-instruct","llama3.1-8b-instruct","llama2-7b-chat-4k", "llama-2-7B-32k-instruct", "longchat-v1.5-7b-32k", "xgen-7b-8k", "internlm-7b-8k", "chatglm2-6b", "chatglm2-6b-32k", "chatglm3-6b-32k", "vicuna-v1.5-7b-16k"])
+    parser.add_argument('--model', type=str, default=None, choices=["phi4","mistral","qwen-2.5-7b-instruct","llama3.1-8b-instruct","llama2-7b-chat-4k", "llama-2-7B-32k-instruct", "longchat-v1.5-7b-32k", "xgen-7b-8k", "internlm-7b-8k", "chatglm2-6b", "chatglm2-6b-32k", "chatglm3-6b-32k", "vicuna-v1.5-7b-16k"])
     parser.add_argument('--dataset', type=str, default=None)
     parser.add_argument('--hopf_type', type=str, default="max_fused")
     parser.add_argument('--len', "-l", type=int, default=None)
@@ -97,6 +97,15 @@ def get_pred(data, max_length, max_gen, prompt_format, dataset, device, model_na
                 min_length=context_length+1,
                 eos_token_id=[tokenizer.eos_token_id, tokenizer.encode("\n", add_special_tokens=False)[-1]],
             )[0]
+        elif model_name == "phi4": # prevent illegal output on Phi4 (model starts with EOS, hence generating empty output)
+            output = model.generate(
+                **input,
+                max_new_tokens=max_gen,
+                num_beams=1,
+                do_sample=False,
+                temperature=1.0,
+                min_length=context_length+1,
+            )[0]
         else:
             output = model.generate(
                 **input,
@@ -139,7 +148,7 @@ def load_model_and_tokenizer(path, model_name, device, args):
     if "chatglm" in model_name or "internlm" in model_name or "xgen" in model_name:
         tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True)
         model = AutoModelForCausalLM.from_pretrained(path, trust_remote_code=True, torch_dtype=torch.bfloat16).to(device)
-    elif "llama" in model_name or "qwen" in model_name or "mistral" in model_name:
+    elif "llama" in model_name or "qwen" in model_name or "mistral" in model_name or "phi4" in model_name:
         # replace_llama_attn_with_flash_attn()
         # tokenizer = LlamaTokenizer.from_pretrained(path)
         # model = LlamaForCausalLM.from_pretrained(path, torch_dtype=torch.bfloat16).to(device)

@@ -11,5 +11,6 @@
     "llama-2-7B-32k-instruct": 6000,
     "qwen-2.5-7b-instruct": 10000,
     "mixtral": 10000,
-    "mistral": 6000
+    "mistral": 6000,
+    "phi4": 16000
 }
