@@ -18,7 +18,7 @@ from pathlib import Path
 
 def parse_args(args=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model', type=str, default=None, choices=["phi4","mistral","qwen-2.5-7b-instruct","llama3.1-8b-instruct","llama2-7b-chat-4k", "llama-2-7B-32k-instruct", "longchat-v1.5-7b-32k", "xgen-7b-8k", "internlm-7b-8k", "chatglm2-6b", "chatglm2-6b-32k", "chatglm3-6b-32k", "vicuna-v1.5-7b-16k"])
+    parser.add_argument('--model', type=str, default=None, choices=["phi4-unsloth","phi4","mistral","qwen2.5","llama3.1-8b-instruct","llama2-7b-chat-4k", "llama-2-7B-32k-instruct", "longchat-v1.5-7b-32k", "xgen-7b-8k", "internlm-7b-8k", "chatglm2-6b", "chatglm2-6b-32k", "chatglm3-6b-32k", "vicuna-v1.5-7b-16k"])
     parser.add_argument('--dataset', type=str, default=None)
     parser.add_argument('--hopf_type', type=str, default="max_fused")
     parser.add_argument('--len', "-l", type=int, default=None)
@@ -70,6 +70,17 @@ def get_pred(data, max_length, max_gen, prompt_format, dataset, device, model_na
     for json_obj in tqdm(data):
         # try:
         prompt = prompt_format.format(**json_obj)
+        if "qwen" in model_name:
+            prompt = f"[INST]{prompt}[/INST]"
+            # messages = [
+            #     {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."},
+            #     {"role": "user", "content": prompt}
+            # ]
+            # prompt = tokenizer.apply_chat_template(
+            #     messages,
+            #     tokenize=False,
+            #     add_generation_prompt=True
+            # )
         # truncate to fit max_length (we suggest truncate in the middle, since the left and right side may contain crucial instructions)
         tokenized_prompt = tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
         if "chatglm3" in model_name:
@@ -97,7 +108,7 @@ def get_pred(data, max_length, max_gen, prompt_format, dataset, device, model_na
                 min_length=context_length+1,
                 eos_token_id=[tokenizer.eos_token_id, tokenizer.encode("\n", add_special_tokens=False)[-1]],
             )[0]
-        elif model_name == "phi4": # prevent illegal output on Phi4 (model starts with EOS, hence generating empty output)
+        elif "phi4" in model_name: # prevent illegal output on Phi4 (model starts with EOS, hence generating empty output)
             output = model.generate(
                 **input,
                 max_new_tokens=max_gen,
@@ -106,6 +117,14 @@ def get_pred(data, max_length, max_gen, prompt_format, dataset, device, model_na
                 temperature=1.0,
                 min_length=context_length+1,
             )[0]
+        elif "qwen" in model_name: # prevent illegal output on Phi4 (model starts with EOS, hence generating empty output)
+            output = model.generate(
+                        **input,
+                        max_new_tokens=max_gen,
+                        do_sample=False,
+                        temperature=1.0,
+                        num_beams=1
+                    )[0]
         else:
             output = model.generate(
                 **input,
