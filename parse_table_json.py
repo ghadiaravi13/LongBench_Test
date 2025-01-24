@@ -59,13 +59,19 @@ def convert_json_to_csv(input_file):
     
     import pandas as pd
     df = pd.read_csv(input_file[:-4]+"csv")
-    df['config'] = ["Hopf_ws"+ str(df['window_size'].iloc[i]) + "_st" + str(df['sim_threshold'].iloc[i]) if df['hopf'].iloc[i] else "No_Hopf" for i in range(len(df))]
+    df['config'] = ["Hopf_ws"+ str(df['window_size'].iloc[i]) + "_st" + str(df['sim_threshold'].iloc[i]) + "_fused_" + str(df['fusion_type'].iloc[i]) if df['hopf'].iloc[i] else "No_Hopf" for i in range(len(df))]
     # df[['dataset','config','value']].to_csv(input_file[:-5]+"_summary.csv")
 
     new_df = pd.DataFrame(columns=sorted(df['dataset'].unique()),index=sorted(df['config'].unique()))
+    # import pdb; pdb.set_trace()
     for c in df['config'].unique():
         # print(new_df.shape,len(df[df['config']==c]['value'].values))
-        new_df.loc[c] = list(df[df['config']==c].sort_values(by='dataset')['value'].values)
+        for d in new_df.columns:
+            try:
+                new_df[d].loc[c] = df[(df['config']==c) & (df['dataset']==d)]['value'].values[0]#list(df[df['config']==c].sort_values(by='dataset')['value'].values)
+            except IndexError:
+                new_df[d].loc[c] = 0
+    # import pdb; pdb.set_trace()
     new_df.to_csv(input_file[:-5]+"_summary.csv")
 
 def main():

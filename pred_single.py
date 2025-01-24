@@ -25,6 +25,7 @@ def parse_args(args=None):
     parser.add_argument('--e', action='store_true', help="Evaluate on LongBench-E")
     parser.add_argument("--window_size", "-ws", type=int, default=3, help="Window size for HopFormer")
     parser.add_argument("--sim_threshold", "-st", type=float, default=20.0, help="Similarity threshold for HopFormer")
+    parser.add_argument("--exhale_after", "-ea", type=float, default=1.0, help="Exhale after exceeding this times the KV limit")
     parser.add_argument("--num_attn_sinks", "-snks", type=float, default=0, help="Attention sinks (streaming LLM)")
     parser.add_argument("--gumbel", "-gbl", action='store_true', help="use gumbel softmax")
     parser.add_argument("--no_hopf", action='store_true', help="Disable HopFormer")  # Updated line
@@ -193,13 +194,23 @@ def load_model_and_tokenizer(path, model_name, device, args):
         config._attn_implementation = "flash_attention_2"
         if args.hopf_type=='indp':
             assert args.window_size==1, "Window size > 1 is not supported for independent Hopformer. Try 'max_fused' instead"
-        config.hopformer = None if args.no_hopf else {
+        config.hopformer = None if args.no_hopf or args.hopf_type=="snapkv" else {
             'window_size': int(args.window_size),
             'sim_threshold': int(args.sim_threshold),
             'softmax': 'gumbel' if args.gumbel else 'normal',
             'num_attn_sinks': int(args.num_attn_sinks),
-            'hopf_type': args.hopf_type
+            'hopf_type': args.hopf_type,
+            'exhale_after': args.exhale_after
         }
+        print(f"Hopformer is: {config.hopformer}")
+        if args.hopf_type=="snapkv":
+            config.snapkv = True
+            config.window_size = int(args.window_size)
+            config.max_capacity_prompt = int(args.sim_threshold)
+            config.kernel_size = 5
+            config.pooling = "avgpool"
+        else:
+            config.snapkv = False
 
         # Load the model with the custom configuration
         model = AutoModelForCausalLM.from_pretrained(
