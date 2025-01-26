@@ -14,19 +14,20 @@ hid_dim_dict = {"llama3.1-8b-instruct": 128, "phi4": 128, "mistral": 128, "qwen2
 
 
 def parse(args,dataset=""):
+    print(dataset)
     model = args.model
-    files = sorted(os.listdir(f"preds/{model}/"),key=lambda x: "hopf_False" not in x)
+    files = sorted(os.listdir(f"pred/{model}/"),key=lambda x: "hopf_False" not in x)
     if args.e:
-        files = sorted(os.listdir(f"preds_e/{model}/"),key=lambda x: "hopf_False" not in x)
-
+        files = sorted(os.listdir(f"pred_e/{model}/"),key=lambda x: "hopf_False" not in x)
+    data = dict()
     for file in files:
         if ".log" in file and dataset in file:
             if args.e:
-                logfile = open(f"preds_e/{model}/"+file,"r")
-                res = open(f"preds_e/{model}/"+file[:-3]+"jsonl","r").readlines()
+                logfile = open(f"pred_e/{model}/"+file,"r")
+                res = open(f"pred_e/{model}/"+file[:-3]+"jsonl","r").readlines()
             else:
-                logfile = open(f"preds/{model}/"+file,"r")
-                res = open(f"preds/{model}/"+file[:-3]+"jsonl","r").readlines()
+                logfile = open(f"pred/{model}/"+file,"r")
+                res = open(f"pred/{model}/"+file[:-3]+"jsonl","r").readlines()
             last_time = 0
             run_name = file.split("/")[-1][:-4]
             
@@ -35,8 +36,8 @@ def parse(args,dataset=""):
             n_layers = layers_dict[model]
             hid_dim_per_head = hid_dim_dict[model]
             
-            if "hopf_False" in file:
-                data = dict()
+            # if "hopf_False" in file:
+            #     data = dict()
             data[run_name] = dict()
             data[run_name]['gen_time(s)'] = []
             data[run_name]['inp_size'] = [] if "hopf_False" in file else inp_size
@@ -54,12 +55,18 @@ def parse(args,dataset=""):
                     if "hopf_False" in file:
                         data[run_name]['inp_size'].append(int(l.split("Input size: ")[1].split(" ")[0]))
                         data[run_name]['out_size'].append(int(l.split("key': ")[1].split(",")[0]) - int(l.split("Input size: ")[1].split(" ")[0]))
-                    data[run_name]['resp_len'].append(int(l.split("len': ")[1].split("}")[0]))
+                    try:
+                        data[run_name]['resp_len'].append(int(l.split("len': ")[1].split("}")[0]))
+                    except IndexError:
+                        data[run_name]['resp_len'].append(data[run_name]['out_size'][-1])
                     data[run_name]['KV_size'].append(4 * hid_dim_per_head * n_key_heads * n_layers * int(l.split("key': ")[1].split(",")[0]) / 1000000)
                     # if "hopf_False" in file:
                     #     data[run_name]['attn_size'].append(4 * n_attn_heads * n_layers * data[run_name]['out_size'][i] * int(l.split("attn_wts': ")[1].split("}")[0]) / 1000000)
                     # else:
-                    data[run_name]['attn_size'].append(4 * n_attn_heads * n_layers * data[run_name]['resp_len'][i] * (int(l.split("attn_wts': ")[1].split(",")[0])!=0) / 1000000)
+                    try:
+                        data[run_name]['attn_size'].append(4 * n_key_heads * n_layers * int(l.split("key': ")[1].split(",")[0]) * int(l.split("attn_wts': ")[1].split(",")[0]) / 1000000)
+                    except ValueError: #for older logs, len is missing, so attn_wts is the last item
+                        data[run_name]['attn_size'].append(4 * n_key_heads * n_layers * int(l.split("key': ")[1].split(",")[0]) * int(l.split("attn_wts': ")[1].split("}")[0]) / 1000000)
                     data[run_name]['total_cache'].append(data[run_name]['KV_size'][-1] + data[run_name]['attn_size'][-1])
                     last_time = curr_time
                     i+=1
@@ -71,36 +78,39 @@ def main():
     # Set up argument parser
     parser = argparse.ArgumentParser(description='Convert results JSON to CSV format')
     parser.add_argument("--model",default=None, type=str, help='Model name for the result parsing')
+    parser.add_argument("--dataset", "-d", default="", type=str, help='Dataset name for the result parsing')
     parser.add_argument("--e",action='store_true',help='results for longbench-E')
 
     
     # Parse arguments
     args = parser.parse_args()
+    print(args.dataset)
     
     # Convert file
     # try:
-    data = parse(args)
+    data = parse(args,dataset=args.dataset)
+    # import pdb; pdb.set_trace()
     df = pd.concat({k: pd.DataFrame(v) for k, v in data.items()}, axis=1)
 
     if args.e:
-        with open(f"preds_e/{args.model}/parsed_log_data.json","w") as f:
+        with open(f"pred_e/{args.model}/{args.dataset}_parsed_log_data.json","w") as f:
             json.dump(data,f)
             try:
-                with pd.ExcelWriter(f"preds_e/parsed_log_data.xlsx",mode='a') as writer:
+                with pd.ExcelWriter(f"pred_e/{args.dataset}_parsed_log_data.xlsx",mode='a') as writer:
                     df.to_excel(writer,sheet_name=args.model)
             except FileNotFoundError:
-                with pd.ExcelWriter(f"preds_e/parsed_log_data.xlsx",mode='w') as writer:
+                with pd.ExcelWriter(f"pred_e/{args.dataset}_parsed_log_data.xlsx",mode='w') as writer:
                     df.to_excel(writer,sheet_name=args.model)
             print(f"Successfully parsed logs")
         f.close()
     else:
-        with open(f"preds/{args.model}/parsed_log_data.json","w") as f:
+        with open(f"pred/{args.model}/{args.dataset}_parsed_log_data.json","w") as f:
             json.dump(data,f)
             try:
-                with pd.ExcelWriter(f"preds/parsed_log_data.xlsx",mode='a') as writer:
+                with pd.ExcelWriter(f"pred/{args.dataset}_parsed_log_data.xlsx",mode='a') as writer:
                     df.to_excel(writer,sheet_name=args.model)
             except FileNotFoundError:
-                with pd.ExcelWriter(f"preds/parsed_log_data.xlsx",mode='w') as writer:
+                with pd.ExcelWriter(f"pred/{args.dataset}_parsed_log_data.xlsx",mode='w') as writer:
                     df.to_excel(writer,sheet_name=args.model)
             print(f"Successfully parsed logs")
         f.close()
