@@ -38,7 +38,7 @@ def parse(args,dataset="NA"):
                 run_name = file.split("/")[-1][:-4]
                 
                 n_attn_heads = attn_heads_dict[model]
-                n_key_heads = n_attn_heads if "snapkv" in file else key_heads_dict[model]
+                n_key_heads = n_attn_heads if "snapkv" in file or "h2o" in file else key_heads_dict[model]
                 n_layers = layers_dict[model]
                 hid_dim_per_head = hid_dim_dict[model]
                 
