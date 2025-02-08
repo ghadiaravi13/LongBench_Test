@@ -2,6 +2,7 @@ import os
 from datasets import load_dataset
 import torch
 import json
+import transformers
 from transformers import AutoTokenizer, LlamaTokenizer, LlamaForCausalLM, AutoModelForCausalLM, AutoConfig
 from tqdm import tqdm
 import numpy as np
@@ -11,6 +12,10 @@ import warnings
 # from llama_flash_attn_monkey_patch import replace_llama_attn_with_flash_attn
 import torch.distributed as dist
 import torch.multiprocessing as mp
+
+import sys
+sys.path.append("/work/10198/ghadiaravi13/vista/HopFormer/MorphKV/")
+from llama_hijack_morphkv import hijack_forward
 
 import logging
 import logging.handlers
@@ -24,12 +29,14 @@ def parse_args(args=None):
     parser.add_argument('--len', "-l", type=int, default=None)
     parser.add_argument('--e', action='store_true', help="Evaluate on LongBench-E")
     parser.add_argument("--window_size", "-ws", type=int, default=3, help="Window size for HopFormer")
+    parser.add_argument("--max_capacity", "-mc", type=int, default=100, help="Max cache capacity")
     parser.add_argument("--sim_threshold", "-st", type=float, default=20.0, help="Similarity threshold for HopFormer")
     parser.add_argument("--exhale_after", "-ea", type=float, default=1.0, help="Exhale after exceeding this times the KV limit")
     parser.add_argument("--num_attn_sinks", "-snks", type=float, default=0, help="Attention sinks (streaming LLM)")
     parser.add_argument("--gumbel", "-gbl", action='store_true', help="use gumbel softmax")
     parser.add_argument("--no_hopf", action='store_true', help="Disable HopFormer")  # Updated line
     parser.add_argument("--save_wts", action='store_true', help="Save attn wts")  # Updated line
+    parser.add_argument("--hijack", action='store_true', help="Hijack Flash Attn with MorphKV")  # Updated line
     return parser.parse_args(args)
 
 # This is the customized building prompt for chat models
@@ -200,24 +207,29 @@ def load_model_and_tokenizer(path, model_name, device, args):
             'softmax': 'gumbel' if args.gumbel else 'normal',
             'num_attn_sinks': int(args.num_attn_sinks),
             'hopf_type': args.hopf_type,
-            'exhale_after': args.exhale_after
+            'exhale_after': args.exhale_after,
+            'max_capacity': args.max_capacity
         }
         print(f"Hopformer is: {config.hopformer}")
         if args.hopf_type=="snapkv":
             config.snapkv = True
             config.window_size = int(args.window_size)
-            config.max_capacity_prompt = int(args.sim_threshold)
+            config.max_capacity_prompt = int(args.max_capacity)
             config.kernel_size = 5
             config.pooling = "avgpool"
         else:
             config.snapkv = False
 
         # Load the model with the custom configuration
+        if args.hijack and "llama" in args.model.lower():
+            print("Hijacked Llama FlashAttn using MorphKV!!!\n")
+            transformers.models.llama.modeling_llama.LlamaFlashAttention2.forward = hijack_forward
         model = AutoModelForCausalLM.from_pretrained(
             path,
             config=config,
             torch_dtype=torch.float16,
             cache_dir=cache_dir).to(device)
+        
         
     elif "longchat" in model_name or "vicuna" in model_name:
         from fastchat.model import load_model
@@ -271,14 +283,14 @@ if __name__ == '__main__':
             data = load_dataset('THUDM/LongBench', f"{dataset}_e", split='test')
             if not os.path.exists(f"pred_e/{model_name}"):
                 os.makedirs(f"pred_e/{model_name}")
-            out_path = f"pred_e/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.jsonl"
-            logfile = f"pred_e/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.log"
+            out_path = f"pred_e/{model_name}/{dataset}_ws{args.window_size}_mc{args.max_capacity}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.jsonl"
+            logfile = f"pred_e/{model_name}/{dataset}_ws{args.window_size}_mc{args.max_capacity}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.log"
         else:
             data = load_dataset('THUDM/LongBench', dataset, split='test')
             if not os.path.exists(f"pred/{model_name}"):
                 os.makedirs(f"pred/{model_name}")
-            out_path = f"pred/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.jsonl"
-            logfile = f"pred/{model_name}/{dataset}_ws{args.window_size}_st{args.sim_threshold}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.log"
+            out_path = f"pred/{model_name}/{dataset}_ws{args.window_size}_mc{args.max_capacity}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.jsonl"
+            logfile = f"pred/{model_name}/{dataset}_ws{args.window_size}_mc{args.max_capacity}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.log"
         prompt_format = dataset2prompt[dataset]
         max_gen = dataset2maxlen[dataset]
         data_all = [data_sample for data_sample in data]
