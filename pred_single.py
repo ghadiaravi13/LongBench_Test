@@ -30,7 +30,7 @@ def parse_args(args=None):
     parser.add_argument('--e', action='store_true', help="Evaluate on LongBench-E")
     parser.add_argument("--window_size", "-ws", type=int, default=3, help="Window size for HopFormer")
     parser.add_argument("--max_capacity", "-mc", type=int, default=100, help="Max cache capacity")
-    parser.add_argument("--sim_threshold", "-st", type=float, default=20.0, help="Similarity threshold for HopFormer")
+    parser.add_argument("--kernel_size", "-ks", type=int, default=5, help="Pooling kernel size")
     parser.add_argument("--exhale_after", "-ea", type=float, default=1.0, help="Exhale after exceeding this times the KV limit")
     parser.add_argument("--num_attn_sinks", "-snks", type=float, default=0, help="Attention sinks (streaming LLM)")
     parser.add_argument("--gumbel", "-gbl", action='store_true', help="use gumbel softmax")
@@ -201,9 +201,8 @@ def load_model_and_tokenizer(path, model_name, device, args):
         config._attn_implementation = "flash_attention_2"
         if args.hopf_type=='indp':
             assert args.window_size==1, "Window size > 1 is not supported for independent Hopformer. Try 'max_fused' instead"
-        config.hopformer = None if args.no_hopf or args.hopf_type=="snapkv" else {
+        config.hopformer = None if args.no_hopf or "snapkv" in args.hopf_type else {
             'window_size': int(args.window_size),
-            'sim_threshold': int(args.sim_threshold),
             'softmax': 'gumbel' if args.gumbel else 'normal',
             'num_attn_sinks': int(args.num_attn_sinks),
             'hopf_type': args.hopf_type,
@@ -211,11 +210,11 @@ def load_model_and_tokenizer(path, model_name, device, args):
             'max_capacity': args.max_capacity
         }
         print(f"Hopformer is: {config.hopformer}")
-        if args.hopf_type=="snapkv":
+        if "snapkv" in args.hopf_type:
             config.snapkv = True
             config.window_size = int(args.window_size)
             config.max_capacity_prompt = int(args.max_capacity)
-            config.kernel_size = 5
+            config.kernel_size = int(args.kernel_size)
             config.pooling = "avgpool"
         else:
             config.snapkv = False
