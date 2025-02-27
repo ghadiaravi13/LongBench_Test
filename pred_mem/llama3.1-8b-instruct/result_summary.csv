@@ -1,0 +1,14 @@
+,2wikimqa,hotpotqa,multifieldqa_en,musique,narrativeqa,passage_retrieval_en
+Hopf_ws32_mc1024_fused_sum_fused_mem,14.74,14.25,24.7,9.94,31.35,97.84
+Hopf_ws32_mc128_fused_snapkv_mem,14.66,13.58,20.19,8.23,25.07,93.93
+Hopf_ws32_mc128_fused_sum_fused_mem,14.37,13.6,18.97,8.17,24.7,93.7
+Hopf_ws32_mc1536_fused_sum_fused_mem,14.96,15.2,25.17,10.36,32.26,98.36
+Hopf_ws32_mc2048_fused_sum_fused_mem,14.94,15.89,25.66,10.69,31.87,97.51
+Hopf_ws32_mc256_fused_snapkv_mem,0,0,0,0,28.13,0
+Hopf_ws32_mc256_fused_sum_fused_mem,14.33,13.57,21.03,8.61,27.62,94.61
+Hopf_ws32_mc334_fused_snapkv_mem,0,0,0,0,27.5,0
+Hopf_ws32_mc33_fused_snapkv_mem,8.31,5.49,3.07,2.07,2.95,63.75
+Hopf_ws32_mc384_fused_snapkv_mem,15.27,14.31,23.59,9.91,28.59,96.75
+Hopf_ws32_mc512_fused_snapkv_mem,15.44,13.78,24.12,10.24,28.85,96.31
+Hopf_ws32_mc512_fused_sum_fused_mem,14.43,14.63,22.67,8.87,29.35,96.15
+Hopf_ws32_mc64_fused_snapkv_mem,14.41,13.59,18.1,8.51,20.09,90.87

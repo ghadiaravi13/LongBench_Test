@@ -93,12 +93,15 @@ def main():
     parser = argparse.ArgumentParser(description='Convert results JSON to CSV format')
     parser.add_argument("--model",default=None, type=str, help='Model name for the result parsing')
     parser.add_argument("--e",action='store_true',help='results for longbench-E')
+    parser.add_argument("--ablation",action='store_true',help='results for longbench ablation mem')
 
     
     # Parse arguments
     args = parser.parse_args()
     
     file = f"pred_e/{args.model}/result.json" if args.e else f"pred/{args.model}/result.json"
+    if args.ablation:
+        file = f"pred_mem/{args.model}/result.json"
     # Convert file
     # try:
     convert_json_to_csv(file)

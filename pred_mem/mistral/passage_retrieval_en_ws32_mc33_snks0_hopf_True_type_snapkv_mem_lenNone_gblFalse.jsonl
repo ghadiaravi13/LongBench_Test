@@ -1,0 +1,200 @@
+{"pred": "Paragraph  1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is:", "answers": ["Paragraph 15"], "all_classes": null, "length": 8525}
+{"pred": "Paragraph 1\n\nSo, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nTherefore", "answers": ["Paragraph 8"], "all_classes": null, "length": 8679}
+{"pred": "Paragraph 1\n\nTherefore, the abstract is from the same document as the abstract.\n\nThe answer format must be like \"Paragraph ", "answers": ["Paragraph 18"], "all_classes": null, "length": 9562}
+{"pred": "Paragraph 1\n\nSo, the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nTherefore,", "answers": ["Paragraph 17"], "all_classes": null, "length": 9273}
+{"pred": "Paragraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is: ", "answers": ["Paragraph 14"], "all_classes": null, "length": 9175}
+{"pred": "Paragraph 3\n\nSo, the format must be like \"Paragraph 3\", \"Paragraph 4\", etc.\n\nThe answer is", "answers": ["Paragraph 3"], "all_classes": null, "length": 9139}
+{"pred": "Paragraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 1\", etc.\n\nThe answer is: ", "answers": ["Paragraph 24"], "all_classes": null, "length": 8832}
+{"pred": "Paragraph 1.  The answer format must be like \"Paragraph 1\", \"Paragraph 1\", etc.\n\nThe answer is:", "answers": ["Paragraph 27"], "all_classes": null, "length": 8995}
+{"pred": "Paragraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe format must be like", "answers": ["Paragraph 30"], "all_classes": null, "length": 7789}
+{"pred": "Paragraph 1\n\nThe format must be like \"Paragraph 1\", but it can be like \"Paragraph 1\", but it can be", "answers": ["Paragraph 12"], "all_classes": null, "length": 10027}
+{"pred": "Paragraph 2\n\nThe abstract is:  The answer format is:  Paragraph 1, Paragraph 2, Paragraph 3.", "answers": ["Paragraph 22"], "all_classes": null, "length": 9273}
+{"pred": "\n\nParagraph 3\n\nThe abstract is from Paragraph 3.\n\nThe abstract is from Paragraph 3.\n\nParagraph", "answers": ["Paragraph 30"], "all_classes": null, "length": 10178}
+{"pred": "Paragraph 1\n\nTherefore, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe", "answers": ["Paragraph 24"], "all_classes": null, "length": 9221}
+{"pred": "Paragraph 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "answers": ["Paragraph 19"], "all_classes": null, "length": 9718}
+{"pred": "\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is: \n\nParagraph", "answers": ["Paragraph 3"], "all_classes": null, "length": 11340}
+{"pred": "Paragraph 1\n\nTherefore:  \"Paragraph 1\", \"Paragraph 1\", \"Paragraph 1\", \"Paragraph ", "answers": ["Paragraph 8"], "all_classes": null, "length": 9750}
+{"pred": "\n Paragraph  Question: Question: Question  Question Question Paragraph  Question Question Question Question Question Question Paragraph  Question Question Question Question Question Question Paragraph", "answers": ["Paragraph 3"], "all_classes": null, "length": 8965}
+{"pred": "Paragraph 1\n\nThe abstract is:  The abstract is from Paragraph 1\n\nThe answer is:  Paragraph 1\n\n", "answers": ["Paragraph 17"], "all_classes": null, "length": 8965}
+{"pred": "Paragraph 1\n\nParagraph 1 is from \"Paragraph 1\", \"Paragraph 2\", etc.\n\nParagraph 1", "answers": ["Paragraph 4"], "all_classes": null, "length": 9275}
+{"pred": "\n\nParagraph 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "answers": ["Paragraph 3"], "all_classes": null, "length": 10934}
+{"pred": "Paragraph 1  (from the document)\n\nThe abstract is from Paragraph 1. The answer format must be \"Paragraph 1\".", "answers": ["Paragraph 24"], "all_classes": null, "length": 9713}
+{"pred": "\n\nParagraph 2\n\nThe abstract is from Paragraph 2, \"Paragraph 2\", \"Paragraph 2\", \"Paragraph", "answers": ["Paragraph 2"], "all_classes": null, "length": 9947}
+{"pred": "Paragraph 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "answers": ["Paragraph 6"], "all_classes": null, "length": 8991}
+{"pred": "\n\nParagraph 111111111111111111111111111", "answers": ["Paragraph 12"], "all_classes": null, "length": 9211}
+{"pred": "Paragraph 1\n\nThe abstract format must be like \"The answer is: Paragraph 1, Paragraph 2, Paragraph 3,", "answers": ["Paragraph 24"], "all_classes": null, "length": 8267}
+{"pred": "Paragraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph", "answers": ["Paragraph 30"], "all_classes": null, "length": 8180}
+{"pred": "\n\nParagraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is", "answers": ["Paragraph 1"], "all_classes": null, "length": 10576}
+{"pred": "Paragraph 1\n\nTherefore, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe", "answers": ["Paragraph 6"], "all_classes": null, "length": 9513}
+{"pred": "\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\n", "answers": ["Paragraph 8"], "all_classes": null, "length": 9747}
+{"pred": "\n\nParagraph 1, 1, 1, 1, 1, 1, 1, 1, 1, ", "answers": ["Paragraph 3"], "all_classes": null, "length": 7534}
+{"pred": "Paragraph 1\n\nThere are no answers.  There are no answers.  There are no answers.  There are no answers.  There are", "answers": ["Paragraph 1"], "all_classes": null, "length": 9908}
+{"pred": "Paragraph 11\n\nSo the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.  The answer format must", "answers": ["Paragraph 25"], "all_classes": null, "length": 8838}
+{"pred": "19, Paragraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 1\", etc.\n\nThe answer", "answers": ["Paragraph 19"], "all_classes": null, "length": 10016}
+{"pred": "Paragraph 1\n\nThe reason is:  The answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n", "answers": ["Paragraph 22"], "all_classes": null, "length": 7992}
+{"pred": "\n\nParagraph 1, \n\nThe format must be like the answer format. The answer format is Paragraph 1.", "answers": ["Paragraph 5"], "all_classes": null, "length": 9899}
+{"pred": "Paragraphs 1\n\nFormat: \"Paragraphs 1\", \"Paragraphs 2\", etc.\n\nAnswer: \"Par", "answers": ["Paragraph 15"], "all_classes": null, "length": 9483}
+{"pred": "\n\nParagraph 1\n\nAnswer: \"Paragraph 1\"\n\nFormat: \"Paragraph 1\"\n\nParagraph ", "answers": ["Paragraph 28"], "all_classes": null, "length": 10118}
+{"pred": "\n\nParagraph 1\n\nThe abstract is from Paragraph 1, Paragraph 1, Paragraph 1, Paragraph 1,", "answers": ["Paragraph 5"], "all_classes": null, "length": 8975}
+{"pred": "\n\nParagraph 1, \n\nThe answer is: \n\nParagraph 1\", \n\nThe answer is: \n\n", "answers": ["Paragraph 30"], "all_classes": null, "length": 9934}
+{"pred": "Paragraph  Question  Question: Question Paragraph  Question Paragraph  Question Paragraph  Question Paragraph  Question Paragraph  Question Paragraph  Question", "answers": ["Paragraph 6"], "all_classes": null, "length": 7736}
+{"pred": "Paragraph 1\n\nTherefore, the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer", "answers": ["Paragraph 12"], "all_classes": null, "length": 8771}
+{"pred": "Paragraph 1", "answers": ["Paragraph 26"], "all_classes": null, "length": 10004}
+{"pred": "3\n\nThe abstract is from: \"Paragraph 1\", \"Paragraph 2\", \"Paragraph 3\"\n\nThe answer is:", "answers": ["Paragraph 30"], "all_classes": null, "length": 9000}
+{"pred": "Paragraph 12\n\nTherefore, the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\"\n\nThe", "answers": ["Paragraph 6"], "all_classes": null, "length": 10255}
+{"pred": "Paragraph  Question: Question stem: Question text Paragraph  Question stem: Question text Paragraph  Question stem Question text Paragraph  Question stem Question text", "answers": ["Paragraph 12"], "all_classes": null, "length": 8776}
+{"pred": "Paragraph 1\n\nParagraph 2\n\nParagraph 3\n\nParagraph 4\n\nParagraph 5\n\nParagraph", "answers": ["Paragraph 23"], "all_classes": null, "length": 10742}
+{"pred": "\n\nParagraph 1, \n\nThe abstract is from Paragraph 1, \n\nThe abstract is from Paragraph 1, ", "answers": ["Paragraph 17"], "all_classes": null, "length": 10320}
+{"pred": "\n\nParagraph 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "answers": ["Paragraph 1"], "all_classes": null, "length": 8971}
+{"pred": "Paragraph 1\n\nSo the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is:", "answers": ["Paragraph 27"], "all_classes": null, "length": 10277}
+{"pred": "21, Paragraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n", "answers": ["Paragraph 21"], "all_classes": null, "length": 9525}
+{"pred": "Paragraph  Question: Question: Question Paragraph  Question Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph", "answers": ["Paragraph 27"], "all_classes": null, "length": 8674}
+{"pred": "29, Question: Question: Question Question Paragraph  Question Question Paragraph  Question Question Question Paragraph  Question Question Question Paragraph Paragraph  Question", "answers": ["Paragraph 29"], "all_classes": null, "length": 8629}
+{"pred": "Paragraph  Question\", but in Question  Question is not a valid paragraph number. Question is a placeholder for Question represents the abstract itself. Question should be replaced", "answers": ["Paragraph 28"], "all_classes": null, "length": 9970}
+{"pred": "Paragraph 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "answers": ["Paragraph 7"], "all_classes": null, "length": 8791}
+{"pred": "\n Paragraph  Question: Question: Question Paragraph  Question Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Par", "answers": ["Paragraph 15"], "all_classes": null, "length": 9949}
+{"pred": "Paragraph 2\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is: Par", "answers": ["Paragraph 22"], "all_classes": null, "length": 9832}
+{"pred": "\n Paragraph  Question  Question: Question Paragraph  Question Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Par", "answers": ["Paragraph 16"], "all_classes": null, "length": 8952}
+{"pred": "\n\nParagraph 1\n\nThe abstract format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer", "answers": ["Paragraph 14"], "all_classes": null, "length": 8253}
+{"pred": "Paragraph 1\n\nThere is no format like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThere is a format like", "answers": ["Paragraph 29"], "all_classes": null, "length": 10431}
+{"pred": "Paragraph  Question: Question: Question Paragraph  Question\n Paragraph  Question Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Par", "answers": ["Paragraph 19"], "all_classes": null, "length": 10196}
+{"pred": "Paragraph 1\n\nTherefore, the answer must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer", "answers": ["Paragraph 28"], "all_classes": null, "length": 10633}
+{"pred": "\n\nParagraph 1, \n\nThe answer is: \n\nParagraph 1, \n\nParagraph 1, \n", "answers": ["Paragraph 26"], "all_classes": null, "length": 9824}
+{"pred": "\n\nParagraph 1: \n\nParagraph 1: \n\nParagraph 1: \n\nParagraph 1: ", "answers": ["Paragraph 1"], "all_classes": null, "length": 9324}
+{"pred": "Paragraph 1\n\nSo the abstract is from:  Paragraph 1\n\nTherefore the answer format must be like \"Paragraph 1", "answers": ["Paragraph 10"], "all_classes": null, "length": 10299}
+{"pred": "Paragraph 1\n\nParagraph 1\n\nThe answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.", "answers": ["Paragraph 8"], "all_classes": null, "length": 9489}
+{"pred": "\n\nParagraph 1, \n\nParagraph 1, \n\nParagraph 1, \n\nParagraph 1, ", "answers": ["Paragraph 3"], "all_classes": null, "length": 8281}
+{"pred": "\n\nParagraph 1\n\nAnswer: \n\nParagraph 1\n\nAnswer: \n\nParagraph 1\n\n", "answers": ["Paragraph 27"], "all_classes": null, "length": 8804}
+{"pred": "Paragraph 1\n\nThe abstract is from Paragraph 1, Paragraph 1, Paragraph 1, Paragraph 1, Paragraph", "answers": ["Paragraph 15"], "all_classes": null, "length": 8473}
+{"pred": "Paragraph 1\n\nTherefore, the abstract is from:  Paragraph 1\n\nTherefore, the answer is: Paragraph 1", "answers": ["Paragraph 21"], "all_classes": null, "length": 9216}
+{"pred": "Paragraph 1\n\nThe abstract format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe abstract format must", "answers": ["Paragraph 28"], "all_classes": null, "length": 10941}
+{"pred": "\n\nParagraph 3\n\n(Note: \n\n1. \n\n1. \n\n1. \n\n1. ", "answers": ["Paragraph 5"], "all_classes": null, "length": 10198}
+{"pred": "Paragraph 1\", \"Paragraph 2\", \"Paragraph 3\", \"Paragraph 4\", \"Paragraph 5\", \"Paragraph", "answers": ["Paragraph 9"], "all_classes": null, "length": 8526}
+{"pred": "Paragraph 1\n\nParagraph 1 is from \"Paragraph 1\", \"Paragraph 1\" is a format like \"Paragraph ", "answers": ["Paragraph 20"], "all_classes": null, "length": 8039}
+{"pred": "Paragraph  Question  Question  Question  Question  Question  Question  Question Question  Question Question Question  Question Question Question Question Question Question Question Question Question Question", "answers": ["Paragraph 15"], "all_classes": null, "length": 9207}
+{"pred": "\n\nParagraph 1\n\nThe abstract format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer", "answers": ["Paragraph 6"], "all_classes": null, "length": 9357}
+{"pred": "Paragraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is: ", "answers": ["Paragraph 23"], "all_classes": null, "length": 9713}
+{"pred": "Paragraph 1\n\nExplanation:  The answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n", "answers": ["Paragraph 26"], "all_classes": null, "length": 8114}
+{"pred": "\nParagraph 1\n\nTherefore, the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe", "answers": ["Paragraph 18"], "all_classes": null, "length": 9148}
+{"pred": "Paragraph 3\n\nTherefore, the correct answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\n", "answers": ["Paragraph 11"], "all_classes": null, "length": 8795}
+{"pred": "Paragraph 3", "answers": ["Paragraph 18"], "all_classes": null, "length": 8491}
+{"pred": "Paragraph  Question: Question: Question  Question  Question  Question  Question  Question Question Question Paragraph  Question Paragraph  Question Paragraph  Question", "answers": ["Paragraph 7"], "all_classes": null, "length": 8642}
+{"pred": "Paragraph 1\n\nSo, the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is", "answers": ["Paragraph 24"], "all_classes": null, "length": 11270}
+{"pred": "Paragraph 1,  Paragraph 1,  Paragraph 1,  Partnership 1,  Partnership 1,  Partnership", "answers": ["Paragraph 23"], "all_classes": null, "length": 9267}
+{"pred": "\n\nParagraph 1\n\nThe abstract is from Paragraph 1. The answer is Paragraph 1.", "answers": ["Paragraph 27"], "all_classes": null, "length": 8747}
+{"pred": "Paragraph 1\n\nSo, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nTherefore", "answers": ["Paragraph 18"], "all_classes": null, "length": 10176}
+{"pred": "Paragraph 1\n\nSo, there are are are are are are are are are are are are are are are are are are are are are are are", "answers": ["Paragraph 28"], "all_classes": null, "length": 8712}
+{"pred": "Paragraph 3\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is: Par", "answers": ["Paragraph 3"], "all_classes": null, "length": 8315}
+{"pred": "Paragraph 1, \n\nParagraph format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nSo the", "answers": ["Paragraph 5"], "all_classes": null, "length": 9403}
+{"pred": "Paragraph                   1\n\nParagraph 1\n\nParagraph", "answers": ["Paragraph 27"], "all_classes": null, "length": 10242}
+{"pred": "\n\nParagraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 1\", etc.\n\nThe answer format", "answers": ["Paragraph 24"], "all_classes": null, "length": 8143}
+{"pred": "28, \"Paragraph 1\"\n\nThe answer format must be like \"Paragraph 1\": \"Paragraph 1\": \"Paragraph", "answers": ["Paragraph 29"], "all_classes": null, "length": 9508}
+{"pred": "Paragraph 1\n\nThe abstract is from:  Abstract 1\n\nThe abstract is about:  Abstract 1\n\nThe abstract is from", "answers": ["Paragraph 23"], "all_classes": null, "length": 7817}
+{"pred": "1\n\n\n\n\n\n\n\n\n Question: Paragraph  Paragraph Answer\n\n Paragraph  Paragraph Answer\n Paragraph  Paragraph", "answers": ["Paragraph 17"], "all_classes": null, "length": 7533}
+{"pred": "\n\nParagraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is", "answers": ["Paragraph 16"], "all_classes": null, "length": 9056}
+{"pred": "\n\nParagraph 1 \n\nTherefore, the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n", "answers": ["Paragraph 18"], "all_classes": null, "length": 9565}
+{"pred": "\n\nParagraph 1\n\nThe abstract is from: \n\nParagraph 1\n\nThe answer format must be like: \n\n", "answers": ["Paragraph 13"], "all_classes": null, "length": 10347}
+{"pred": "\n\nParagraph 1\n\nThe answer is: \n\nThe answer is: \n\nThe answer is: \n\nThe answer is", "answers": ["Paragraph 20"], "all_classes": null, "length": 9260}
+{"pred": "Paragraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThere is no abstract from", "answers": ["Paragraph 18"], "all_classes": null, "length": 11516}
+{"pred": "\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\n", "answers": ["Paragraph 23"], "all_classes": null, "length": 9334}
+{"pred": "Paragraph 2\n\nThe abstract format must be like \"Abstract 1\", \"Abstract 2\", etc.\n\nThe abstract format must be \"", "answers": ["Paragraph 19"], "all_classes": null, "length": 10614}
+{"pred": "\n\nParagraph 1, \n\nThe answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\n", "answers": ["Paragraph 19"], "all_classes": null, "length": 9251}
+{"pred": "Paragraph 1\n\nTherefore, the abstract is from \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is", "answers": ["Paragraph 30"], "all_classes": null, "length": 9922}
+{"pred": "\n\nParagraph 1, \n\nThe answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\n", "answers": ["Paragraph 13"], "all_classes": null, "length": 9459}
+{"pred": "Paragraph 1\n\nSo the format must be like \"Paragraph 1\", \"Paragraph 1\", etc.\n\nThe answer is:", "answers": ["Paragraph 9"], "all_classes": null, "length": 9025}
+{"pred": "Paragraph 1\n\nSo, the abstract is from \"Paragraph 1\"\n\nThe answer is:  Paragraph 1\n\nThe", "answers": ["Paragraph 22"], "all_classes": null, "length": 9717}
+{"pred": "Paragraph 1\n\nSo, the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is", "answers": ["Paragraph 11"], "all_classes": null, "length": 9446}
+{"pred": "Paragraph 1\n\nTherefore, the abstract is from:  Paragraph 1\n\nTherefore, the abstract is from:  Paragraph", "answers": ["Paragraph 3"], "all_classes": null, "length": 10308}
+{"pred": "\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\n", "answers": ["Paragraph 12"], "all_classes": null, "length": 8558}
+{"pred": "\n\nParagraph 1, \n\nThe answer is: \n\nParagraph 1, \n\nThe answer is: \n\n", "answers": ["Paragraph 10"], "all_classes": null, "length": 9485}
+{"pred": "\n\nParagraph 3\n\nThe answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nParagraph", "answers": ["Paragraph 3"], "all_classes": null, "length": 8673}
+{"pred": "\n\nParagraph 10, \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "answers": ["Paragraph 10"], "all_classes": null, "length": 9147}
+{"pred": "Paragraph 2\n\nThe reason is:  The abstract is from Paragraph 2. The answer format must be like \"Paragraph 1\",", "answers": ["Paragraph 2"], "all_classes": null, "length": 10298}
+{"pred": "Paragraph 3\n\nThere is no need to explain why the format is like \"Paragraph 1\", \"Paragraph 2\", etc. ", "answers": ["Paragraph 27"], "all_classes": null, "length": 8716}
+{"pred": "Paragraph 1\n\nTherefore, the abstract format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe", "answers": ["Paragraph 7"], "all_classes": null, "length": 9171}
+{"pred": "20, \"Paragraph 2\", 21, \"Paragraph 3\", 19, \"Paragraph 4\", 1,", "answers": ["Paragraph 20"], "all_classes": null, "length": 9357}
+{"pred": "Paragraph 1\n\nThe abstract is from Paragraph 1, Paragraph 2, etc.  Paragraph 1, Paragraph 2", "answers": ["Paragraph 25"], "all_classes": null, "length": 10597}
+{"pred": "\n\nParagraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 1\", etc.\n\nThe answer is", "answers": ["Paragraph 30"], "all_classes": null, "length": 8070}
+{"pred": "Paragraph 1\n\nTherefore, the abstract is from \"Paragraph 1\", \"Paragraph 2\", \"Paragraph 3\", \"", "answers": ["Paragraph 9"], "all_classes": null, "length": 9095}
+{"pred": "Paragraph 1\", \"Paragraph 2\", \"Paragraph 3\", \"Paragraph 4\", \"Paragraph 5\", \"Paragraph", "answers": ["Paragraph 14"], "all_classes": null, "length": 8867}
+{"pred": "\n\nParagraph 1\n\nThe abstract is from: \n\nParagraph 1\n\nThe answer format must be like \"Paragraph ", "answers": ["Paragraph 8"], "all_classes": null, "length": 9895}
+{"pred": "\n\nParagraph 8\n\nThe answer is: \n\nParagraph 8\n\nThe format is: \n\nParagraph 8", "answers": ["Paragraph 8"], "all_classes": null, "length": 9072}
+{"pred": "\n\nParagraph 1, \n\nParagraph 1, \n\nParagraph 1, \n\nParagraph 1, ", "answers": ["Paragraph 19"], "all_classes": null, "length": 10852}
+{"pred": "Paragraph 3\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe format must be like", "answers": ["Paragraph 22"], "all_classes": null, "length": 9767}
+{"pred": "\n\nParagraph 1\n\nThe abstract is from Paragraph 1. The answer is also from Paragraph 1.\n\nParagraph ", "answers": ["Paragraph 1"], "all_classes": null, "length": 9547}
+{"pred": "Paragraph 1\n\nThe reason is:  The reason is:  The reason is:  The reason is:  The reason is:  The", "answers": ["Paragraph 7"], "all_classes": null, "length": 8081}
+{"pred": "7, Question: Question: Question Paragraph  Question Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Par", "answers": ["Paragraph 7"], "all_classes": null, "length": 7860}
+{"pred": "29, \"Paragraph 1\", \"Paragraph 2\", etc.\n\nParagraph 1\": 1, \"Paragraph 2", "answers": ["Paragraph 28"], "all_classes": null, "length": 9423}
+{"pred": "Paragraph 3\n\nSo, the final format must be like \"Paragraph 1\", \"Paragraph 2\", etc., \"Paragraph ", "answers": ["Paragraph 11"], "all_classes": null, "length": 7818}
+{"pred": "Paragraph 1\n\nTherefore, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nSo", "answers": ["Paragraph 18"], "all_classes": null, "length": 10417}
+{"pred": "\n\nParagraph 1\n\nThe format must be like: \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer", "answers": ["Paragraph 9"], "all_classes": null, "length": 8644}
+{"pred": "Paragraph 1\n\nThe answer is:  Paragraph 1\n\nThe answer is:  Paragraph 1\n\nThe answer is:", "answers": ["Paragraph 16"], "all_classes": null, "length": 8429}
+{"pred": "Paragraph 8\n\nParagraph 1:  Paragraph 2\n\nParagraph 1:  Paragraph 3\n\nParagraph", "answers": ["Paragraph 8"], "all_classes": null, "length": 8931}
+{"pred": "\n\nParagraph 1 \n\nThe abstract is from Paragraph 1. The format must be like \"Paragraph 1\", \"Paragraph", "answers": ["Paragraph 27"], "all_classes": null, "length": 9098}
+{"pred": "Paragraph 1\n\nThere is no need to change the answer format like \"Paragraph 1\", \"Paragraph 2\", etc.\n\n", "answers": ["Paragraph 7"], "all_classes": null, "length": 8751}
+{"pred": "Paragraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer format must be", "answers": ["Paragraph 26"], "all_classes": null, "length": 9296}
+{"pred": "Paragraph 3\n\nSo, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nAnd,", "answers": ["Paragraph 24"], "all_classes": null, "length": 9412}
+{"pred": "Paragraph  Question: Question: Question  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question", "answers": ["Paragraph 20"], "all_classes": null, "length": 9968}
+{"pred": "\n\nParagraph 1\n\nThe answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer", "answers": ["Paragraph 29"], "all_classes": null, "length": 9105}
+{"pred": "Paragraph  Question: Question: Question  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question", "answers": ["Paragraph 28"], "all_classes": null, "length": 8924}
+{"pred": "\n\nParagraph 1\n\nThe answer is: \n\nParagraph 1\n\nThe answer is: \n\nParagraph 1", "answers": ["Paragraph 6"], "all_classes": null, "length": 9991}
+{"pred": "Paragraph 1\n\nSo, the format must be like \"Paragraph 1\".", "answers": ["Paragraph 1"], "all_classes": null, "length": 10601}
+{"pred": "Paragraph 1\n\nThe abstract is from Paragraph 1, Paragraph 1, Paragraph 1, Paragraph 1, Paragraph", "answers": ["Paragraph 4"], "all_classes": null, "length": 8559}
+{"pred": "\n\nParagraph 3\n\nThe abstract is from Paragraph 3.\n\nThe answer is: Paragraph 3\n\nThe format must", "answers": ["Paragraph 29"], "all_classes": null, "length": 10041}
+{"pred": "1. The abstract format must be like \"Paragraph 1\", \"Paragraph 2\", etc. The answer format must be like \"Answer Par", "answers": ["Paragraph 11"], "all_classes": null, "length": 8851}
+{"pred": "\n\nParagraph 3\n\nAnswer:\n\nThe abstract is from Paragraph 1, Paragraph 2, Paragraph 3.", "answers": ["Paragraph 7"], "all_classes": null, "length": 10303}
+{"pred": "Paragraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph 1\n\nParagraph", "answers": ["Paragraph 22"], "all_classes": null, "length": 9065}
+{"pred": "Paragraph 8\", \"Paragraph 8\", etc.\n\nParagraph 8 is from \"Paragraph 8\", \"Paragraph 8", "answers": ["Paragraph 8"], "all_classes": null, "length": 8976}
+{"pred": "Paragraph 1\n\nThe abstract is:  The abstract is The abstract The abstract The abstract The abstract The abstract The abstract The abstract The abstract The abstract", "answers": ["Paragraph 28"], "all_classes": null, "length": 8863}
+{"pred": "\n\nParagraph 1\n\nThe answer is: \n\nThe answer is: \n\nThe answer is: \n\nThe answer is", "answers": ["Paragraph 23"], "all_classes": null, "length": 9616}
+{"pred": "Paragraph 8,\n\nParagraph 1,\nParagraph 2,\nParagraph 3,\nParagraph 4,\nPar", "answers": ["Paragraph 8"], "all_classes": null, "length": 9063}
+{"pred": "11, Paragraph 1.", "answers": ["Paragraph 11"], "all_classes": null, "length": 8464}
+{"pred": "Paragraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nParagraph 1\n", "answers": ["Paragraph 28"], "all_classes": null, "length": 9939}
+{"pred": "\n\nParagraph 1\n\nThe answer is: \n\nParagraph 1\n\nThe answer format must be: \n\nParagraph", "answers": ["Paragraph 16"], "all_classes": null, "length": 7539}
+{"pred": "Paragraph 2\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer format must be", "answers": ["Paragraph 2"], "all_classes": null, "length": 9321}
+{"pred": "Paragraph 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "answers": ["Paragraph 1"], "all_classes": null, "length": 9976}
+{"pred": "Paragraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe format must be like", "answers": ["Paragraph 2"], "all_classes": null, "length": 7814}
+{"pred": "Paragraph 1, Paragraph 2, Paragraph 1, Paragraph 1, Paragraph 1, Paragraph 1, Paragraph", "answers": ["Paragraph 28"], "all_classes": null, "length": 10274}
+{"pred": "Paragraph 1\n\nSo, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer", "answers": ["Paragraph 7"], "all_classes": null, "length": 9091}
+{"pred": "Paragraph 1\n\nTherefore, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe", "answers": ["Paragraph 27"], "all_classes": null, "length": 10887}
+{"pred": "Paragraph 3\n\nSo, the complete answer must be like \"Paragraph 1\", \"Paragraph 2\", \"Paragraph 3\"", "answers": ["Paragraph 16"], "all_classes": null, "length": 9628}
+{"pred": "\n\nParagraph 1\n\nThe abstract is from Paragraph 1, Paragraph 1, Paragraph 1, Paragraph 1,", "answers": ["Paragraph 1"], "all_classes": null, "length": 8060}
+{"pred": "Paragraph 1\n\nTherefore, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThere", "answers": ["Paragraph 26"], "all_classes": null, "length": 9395}
+{"pred": "Paragraph 3\n\nSo, the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is", "answers": ["Paragraph 6"], "all_classes": null, "length": 8232}
+{"pred": "Paragraph 11 \n\nParagraph 1:  Paragraph 11 \nParagraph 2:  Paragraph 11", "answers": ["Paragraph 15"], "all_classes": null, "length": 9132}
+{"pred": "Paragraph 1\n\nTherefore, 1 must must must must must, 1 must must must must, 1 must must must must, ", "answers": ["Paragraph 14"], "all_classes": null, "length": 8557}
+{"pred": "Paragraph 1\n\nTherefore, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe", "answers": ["Paragraph 25"], "all_classes": null, "length": 9374}
+{"pred": "Paragraph 11, \"Paragraph 1\", \"Paragraph 2\", \"Paragraph 3\", \"Paragraph 4\", \"Par", "answers": ["Paragraph 6"], "all_classes": null, "length": 9024}
+{"pred": "Paragraph 2.", "answers": ["Paragraph 2"], "all_classes": null, "length": 8492}
+{"pred": "Paragraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nParagraph 1\n", "answers": ["Paragraph 5"], "all_classes": null, "length": 8944}
+{"pred": "\n\nParagraph 1, \n\nThe abstract is from Paragraph 1, \n\nParagraph 1, \n\nParagraph", "answers": ["Paragraph 12"], "all_classes": null, "length": 8243}
+{"pred": "\n\nParagraph 1\n\nThe answer is: \n\nParagraph 1\n\nThe answer format must be like \"Paragraph 1", "answers": ["Paragraph 12"], "all_classes": null, "length": 8452}
+{"pred": "Paragraph 1\n\nTherefore, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe", "answers": ["Paragraph 8"], "all_classes": null, "length": 8418}
+{"pred": "Paragraph 1\n\nThe format must be like \"Paragraph 1\", \"Paragraph 1\", etc.\n\nThe format must be like", "answers": ["Paragraph 20"], "all_classes": null, "length": 9471}
+{"pred": "Paragraph  Question: Question: Question Paragraph  Question Question Paragraph  Question Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Par", "answers": ["Paragraph 25"], "all_classes": null, "length": 8888}
+{"pred": "Paragraph 3\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\"\n\nParagraph 1", "answers": ["Paragraph 23"], "all_classes": null, "length": 8088}
+{"pred": "Paragraph 3\n\nSo, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer", "answers": ["Paragraph 30"], "all_classes": null, "length": 10318}
+{"pred": "Paragraph 1\n\nSo, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer", "answers": ["Paragraph 7"], "all_classes": null, "length": 10754}
+{"pred": "\n\nParagraph 1\n\nThe abstract is from: \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is", "answers": ["Paragraph 10"], "all_classes": null, "length": 8055}
+{"pred": "\n\nParagraph 1, \n\nParagraph 1, \n\nParagraph 1, \n\nAbstract 1, \n", "answers": ["Paragraph 30"], "all_classes": null, "length": 9471}
+{"pred": "Paragraph  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question  Question", "answers": ["Paragraph 9"], "all_classes": null, "length": 9415}
+{"pred": "Paragraph 1\n\nTherefore, the answer is correct.\n\nTherefore, the answer is correct.\n\nTherefore, the answer is", "answers": ["Paragraph 17"], "all_classes": null, "length": 10382}
+{"pred": "\n\nParagraph 3\n\nThe abstract is from Paragraph 3.\n\nParagraph 3 is from Paragraph 3.\n\n", "answers": ["Paragraph 30"], "all_classes": null, "length": 10098}
+{"pred": "Paragraph 1\n\nThe answer format must be like \"Paragraph 1\", \"Paragraph 1\", etc.\"\n\nThe answer format must", "answers": ["Paragraph 10"], "all_classes": null, "length": 10972}
+{"pred": "Paragraph 1\n\nTherefore, the abstract is from Paragraph 1, and the answer is like \"Paragraph 1\".\n\nThere", "answers": ["Paragraph 26"], "all_classes": null, "length": 8937}
+{"pred": "\n Paragraph  Question  Question: Question Paragraph  Question Question Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph", "answers": ["Paragraph 27"], "all_classes": null, "length": 8275}
+{"pred": "Paragraph 1\n\nThe reason for the answer is:  The answer is:  The answer is:  The answer is:  The answer is", "answers": ["Paragraph 26"], "all_classes": null, "length": 9032}
+{"pred": "\n\nParagraph 1\n\nThe abstract is from: \n\nParagraph 1\n\nThe answer must be like \"Paragraph 1", "answers": ["Paragraph 8"], "all_classes": null, "length": 7990}
+{"pred": "\nParagraph 1", "answers": ["Paragraph 30"], "all_classes": null, "length": 9969}
+{"pred": "Paragraph 3\n\nTherefore, the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nTherefore", "answers": ["Paragraph 13"], "all_classes": null, "length": 9356}
+{"pred": "Paragraph 1\n\nParagraph format must be like \"Paragraph 1\".\n\nThe abstract is from \"Paragraph 1\".\n\n", "answers": ["Paragraph 12"], "all_classes": null, "length": 9827}
+{"pred": "Paragraph 1\n\nTherefore, the abstract is from Paragraph 1.\n\nThe answer is:  Paragraph 1\n\nThe", "answers": ["Paragraph 24"], "all_classes": null, "length": 8886}
+{"pred": "Paragraph 1\n\nSo the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is", "answers": ["Paragraph 6"], "all_classes": null, "length": 7953}
+{"pred": "\n Paragraph  Question: Question: Paragraph  Question Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph", "answers": ["Paragraph 24"], "all_classes": null, "length": 9019}
+{"pred": "Paragraph 1\n\nSo,  the format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer", "answers": ["Paragraph 25"], "all_classes": null, "length": 9668}
+{"pred": "Paragraph 1\n\nExplanation:  \"Paragraph 1\"\"\n\nAbstract:  \"Paragraph 1\"\n\nAn", "answers": ["Paragraph 24"], "all_classes": null, "length": 9446}
+{"pred": "\n\nParagraph 1\n\nThe abstract is from: \n\nParagraph 1\n\nThe answer is: \n\nParagraph ", "answers": ["Paragraph 1"], "all_classes": null, "length": 9333}
+{"pred": "Paragraph 1\n\nThere is no abstract format must must must must must must must must must must must must must must must must must must must must must", "answers": ["Paragraph 25"], "all_classes": null, "length": 9006}
+{"pred": "Paragraph 2\n\nThe format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is: ", "answers": ["Paragraph 2"], "all_classes": null, "length": 10134}
+{"pred": "Paragraph 1\n\nTherefore, the answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe", "answers": ["Paragraph 27"], "all_classes": null, "length": 8214}
+{"pred": "Paragraph 1,  Paragraph 1,  Paragraph 1,  Paragraph 1,  Paragraph 1,  Paragraph", "answers": ["Paragraph 4"], "all_classes": null, "length": 10149}

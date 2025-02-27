@@ -28,6 +28,7 @@ def parse_args(args=None):
     parser.add_argument('--hopf_type', type=str, default="max_fused")
     parser.add_argument('--len', "-l", type=int, default=None)
     parser.add_argument('--e', action='store_true', help="Evaluate on LongBench-E")
+    parser.add_argument('--ablation', action='store_true', help="Evaluate on LongBench Ablation")
     parser.add_argument("--window_size", "-ws", type=int, default=3, help="Window size for HopFormer")
     parser.add_argument("--max_capacity", "-mc", type=int, default=100, help="Max cache capacity")
     parser.add_argument("--kernel_size", "-ks", type=int, default=5, help="Pooling kernel size")
@@ -259,7 +260,9 @@ if __name__ == '__main__':
     model_name = args.model
     # define your model
     max_length = model2maxlen[model_name] if args.len is None else args.len
-    if args.e:
+    if args.ablation:
+        datasets = ["narrativeqa", "2wikimqa", "hotpotqa", "multifieldqa_en", "musique", "passage_retrieval_en"]
+    elif args.e:
         datasets = ["qasper","2wikimqa","hotpotqa","multi_news","passage_retrieval_en","lcc"] #["qasper", "multifieldqa_en", "hotpotqa", "2wikimqa", "gov_report", "multi_news", \
             #"trec", "triviaqa", "samsum", "passage_count", "passage_retrieval_en", "lcc", "repobench-p"]
     else:
@@ -278,7 +281,15 @@ if __name__ == '__main__':
         datasets = [args.dataset]
     for dataset in datasets:
         # assert dataset in datasets, "Unknown Dataset Error!"
-        if args.e:
+        if args.ablation:
+            if not os.path.exists("pred_mem"):
+                os.makedirs("pred_mem")
+            data = load_dataset('THUDM/LongBench', f"{dataset}", split='test')
+            if not os.path.exists(f"pred_mem/{model_name}"):
+                os.makedirs(f"pred_mem/{model_name}")
+            out_path = f"pred_mem/{model_name}/{dataset}_ws{args.window_size}_mc{args.max_capacity}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.jsonl"
+            logfile = f"pred_mem/{model_name}/{dataset}_ws{args.window_size}_mc{args.max_capacity}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.log"
+        elif args.e:
             data = load_dataset('THUDM/LongBench', f"{dataset}_e", split='test')
             if not os.path.exists(f"pred_e/{model_name}"):
                 os.makedirs(f"pred_e/{model_name}")
