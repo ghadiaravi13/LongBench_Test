@@ -18,5 +18,6 @@
     "mixtral": "mistralai/Mixtral-8x7B-Instruct-v0.1",
     "mistral": "mistralai/Mistral-7B-Instruct-v0.2",
     "phi4": "microsoft/phi-4",
-    "phi4-unsloth": "unsloth/phi-4"
+    "phi4-unsloth": "unsloth/phi-4",
+    "qwen2.5-30b": "Qwen/Qwen2.5-32B-Instruct"
 }
