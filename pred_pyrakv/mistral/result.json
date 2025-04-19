@@ -1,0 +1,22 @@
+{
+    "triviaqa_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 86.1,
+    "2wikimqa_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 26.91,
+    "repobench-p_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 51.97,
+    "passage_retrieval_en_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 85.31,
+    "hotpotqa_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 40.92,
+    "trec_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 59.0,
+    "multifieldqa_zh_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 42.65,
+    "musique_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 18.13,
+    "passage_retrieval_zh_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 0.0,
+    "multifieldqa_en_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 48.15,
+    "narrativeqa_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 25.88,
+    "dureader_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 24.21,
+    "lsht_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 25.25,
+    "samsum_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 42.66,
+    "lcc_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 54.83,
+    "qasper_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 30.55,
+    "qmsum_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 23.45,
+    "multi_news_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 26.78,
+    "vcsum_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 13.66,
+    "passage_count_ws32_mc2048_snks0_hopf_True_type_sum_fused_pyra_lenNone_gblFalse": 2.7
+}

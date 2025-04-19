@@ -12,6 +12,7 @@ import warnings
 # from llama_flash_attn_monkey_patch import replace_llama_attn_with_flash_attn
 import torch.distributed as dist
 import torch.multiprocessing as mp
+import torch.profiler
 
 import sys
 sys.path.append("/work/10198/ghadiaravi13/vista/HopFormer/MorphKV/")
@@ -25,10 +26,12 @@ def parse_args(args=None):
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', type=str, default=None, choices=["phi4-unsloth","phi4","mistral","qwen2.5","llama3.1-8b-instruct","llama2-7b-chat-4k", "llama-2-7B-32k-instruct", "longchat-v1.5-7b-32k", "xgen-7b-8k", "internlm-7b-8k", "chatglm2-6b", "chatglm2-6b-32k", "chatglm3-6b-32k", "vicuna-v1.5-7b-16k"])
     parser.add_argument('--dataset', type=str, default=None)
+    parser.add_argument('--pred_path', type=str, default="pred")
     parser.add_argument('--hopf_type', type=str, default="max_fused")
     parser.add_argument('--len', "-l", type=int, default=None)
     parser.add_argument('--e', action='store_true', help="Evaluate on LongBench-E")
     parser.add_argument('--ablation', action='store_true', help="Evaluate on LongBench Ablation")
+    parser.add_argument('--runtime_prof', "-rp", action='store_true', help="Evaluate on LongBench Runtime Profiling")
     parser.add_argument("--window_size", "-ws", type=int, default=3, help="Window size for HopFormer")
     parser.add_argument("--max_capacity", "-mc", type=int, default=100, help="Max cache capacity")
     parser.add_argument("--kernel_size", "-ks", type=int, default=5, help="Pooling kernel size")
@@ -38,6 +41,7 @@ def parse_args(args=None):
     parser.add_argument("--no_hopf", action='store_true', help="Disable HopFormer")  # Updated line
     parser.add_argument("--save_wts", action='store_true', help="Save attn wts")  # Updated line
     parser.add_argument("--hijack", action='store_true', help="Hijack Flash Attn with MorphKV")  # Updated line
+    parser.add_argument("--start_layer", "-sl", type=int, default=-1, help="Apply MorphKV only from this layer onward")
     return parser.parse_args(args)
 
 # This is the customized building prompt for chat models
@@ -135,6 +139,18 @@ def get_pred(data, max_length, max_gen, prompt_format, dataset, device, model_na
                         num_beams=1
                     )[0]
         else:
+
+            # with torch.profiler.profile(
+            #     activities=[
+            #         torch.profiler.ProfilerActivity.CPU, 
+            #         torch.profiler.ProfilerActivity.CUDA
+            #     ],
+            #     record_shapes=True,
+            #     with_stack=True,
+            #     with_flops=True,
+            #     profile_memory=True  # Tracks memory ops
+            # ) as prof:
+                
             output = model.generate(
                 **input,
                 max_new_tokens=max_gen,
@@ -142,6 +158,9 @@ def get_pred(data, max_length, max_gen, prompt_format, dataset, device, model_na
                 do_sample=False,
                 temperature=1.0,
             )[0]
+        
+        # print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=10))
+
         pred = tokenizer.decode(output[context_length:], skip_special_tokens=True)
         pred = post_process(pred, model_name)
         # except Exception as e:
@@ -153,6 +172,8 @@ def get_pred(data, max_length, max_gen, prompt_format, dataset, device, model_na
         with open(out_path, "a", encoding="utf-8") as f:
             json.dump({"pred": pred, "answers": json_obj["answers"], "all_classes": json_obj["all_classes"], "length": json_obj["length"]}, f, ensure_ascii=False)
             f.write('\n')
+        if "prof" in args.hopf_type:
+            break
     # dist.destroy_process_group()
 
 def seed_everything(seed):
@@ -208,7 +229,8 @@ def load_model_and_tokenizer(path, model_name, device, args):
             'num_attn_sinks': int(args.num_attn_sinks),
             'hopf_type': args.hopf_type,
             'exhale_after': args.exhale_after,
-            'max_capacity': args.max_capacity
+            'max_capacity': args.max_capacity,
+            'start_layer': args.start_layer
         }
         print(f"Hopformer is: {config.hopformer}")
         if "snapkv" in args.hopf_type:
@@ -258,10 +280,13 @@ if __name__ == '__main__':
     model2maxlen = json.load(open("config/model2maxlen.json", "r"))
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model_name = args.model
+    pred_path = args.pred_path
     # define your model
     max_length = model2maxlen[model_name] if args.len is None else args.len
     if args.ablation:
         datasets = ["narrativeqa", "2wikimqa", "hotpotqa", "multifieldqa_en", "musique", "passage_retrieval_en"]
+    elif args.runtime_prof:
+        datasets = ["narrativeqa", "hotpotqa", "multifieldqa_en", "musique", "passage_retrieval_en", "multi_news"]#["narrativeqa", "2wikimqa", "hotpotqa", "multifieldqa_en", "musique", "passage_retrieval_en"]
     elif args.e:
         datasets = ["qasper","2wikimqa","hotpotqa","multi_news","passage_retrieval_en","lcc"] #["qasper", "multifieldqa_en", "hotpotqa", "2wikimqa", "gov_report", "multi_news", \
             #"trec", "triviaqa", "samsum", "passage_count", "passage_retrieval_en", "lcc", "repobench-p"]
@@ -297,10 +322,10 @@ if __name__ == '__main__':
             logfile = f"pred_e/{model_name}/{dataset}_ws{args.window_size}_mc{args.max_capacity}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.log"
         else:
             data = load_dataset('THUDM/LongBench', dataset, split='test')
-            if not os.path.exists(f"pred/{model_name}"):
-                os.makedirs(f"pred/{model_name}")
-            out_path = f"pred/{model_name}/{dataset}_ws{args.window_size}_mc{args.max_capacity}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.jsonl"
-            logfile = f"pred/{model_name}/{dataset}_ws{args.window_size}_mc{args.max_capacity}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.log"
+            if not os.path.exists(f"{pred_path}/{model_name}"):
+                os.makedirs(f"{pred_path}/{model_name}")
+            out_path = f"{pred_path}/{model_name}/{dataset}_ws{args.window_size}_mc{args.max_capacity}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.jsonl"
+            logfile = f"{pred_path}/{model_name}/{dataset}_ws{args.window_size}_mc{args.max_capacity}_snks{args.num_attn_sinks}_hopf_{not(args.no_hopf)}_type_{args.hopf_type}_len{args.len}_gbl{args.gumbel}.log"
         prompt_format = dataset2prompt[dataset]
         max_gen = dataset2maxlen[dataset]
         data_all = [data_sample for data_sample in data]

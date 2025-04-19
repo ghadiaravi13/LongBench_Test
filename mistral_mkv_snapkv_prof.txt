@@ -1,0 +1,2028 @@
+Hopformer is: None
+Offloaded Cache....
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash SnapKV Init Segment: 0.071 ms
+Flash SnapKV evict Segment: 2.648 ms
+Flash Attention: 5.369 ms
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total MFLOPs  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                           aten::matmul         2.88%     106.047us        12.30%     452.634us      75.439us       0.000us         0.00%     231.391us      38.565us           0 b           0 b      40.29 Mb           0 b             6            --  
+                                           aten::linear         0.46%      16.896us         9.41%     345.979us      86.495us       0.000us         0.00%     210.271us      52.568us           0 b           0 b      37.95 Mb           0 b             4            --  
+                                               aten::mm         3.83%     140.896us         5.38%     197.885us      49.471us     210.271us        25.53%     210.271us      52.568us           0 b           0 b      37.95 Mb      37.95 Mb             4    160809.615  
+              nvjet_hsh_192x160_64x4_1x2_h_bz_coopB_TNT         0.00%       0.000us         0.00%       0.000us       0.000us     164.255us        19.94%     164.255us      82.127us           0 b           0 b           0 b           0 b             2            --  
+                                          FlashAttnFunc         1.84%      67.519us         7.86%     289.245us     289.245us       0.000us         0.00%     144.447us     144.447us           0 b           0 b      15.02 Mb    -240.50 Kb             1            --  
+                        flash_attn::_flash_attn_forward         4.55%     167.263us         5.90%     216.862us     216.862us     144.447us        17.54%     144.447us     144.447us           0 b           0 b      15.26 Mb           0 b             1            --  
+void flash_fwd_kernel<Flash_fwd_kernel_traits<128, 1...         0.00%       0.000us         0.00%       0.000us       0.000us     144.447us        17.54%     144.447us     144.447us           0 b           0 b           0 b           0 b             1            --  
+                                            aten::copy_         2.14%      78.719us         4.61%     169.757us      18.862us     124.928us        15.17%     124.928us      13.881us           0 b           0 b           0 b           0 b             9            --  
+                                              aten::cat         2.33%      85.696us         3.80%     139.648us      27.930us     106.750us        12.96%     106.750us      21.350us           0 b           0 b      36.04 Mb      36.04 Mb             5            --  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us     102.463us        12.44%     102.463us      25.616us           0 b           0 b           0 b           0 b             4            --  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 3.679ms
+Self CUDA time total: 823.611us
+
+Hopformer Cache Segment: 0.110 ms
+Total Attention {'key': 1025, 'value': 1025, 'attn_wts': 0, 'len': 1025}
+- - - - - - - - - - - - - - - - - - - 
+: 2.761 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1026, 'value': 1026, 'attn_wts': 0, 'len': 1026}
+- - - - - - - - - - - - - - - - - - - 
+: 1.175 ms
+Hopformer Cache Segment: 0.102 ms
+Total Attention {'key': 1027, 'value': 1027, 'attn_wts': 0, 'len': 1027}
+- - - - - - - - - - - - - - - - - - - 
+: 1.151 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1028, 'value': 1028, 'attn_wts': 0, 'len': 1028}
+- - - - - - - - - - - - - - - - - - - 
+: 1.116 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1029, 'value': 1029, 'attn_wts': 0, 'len': 1029}
+- - - - - - - - - - - - - - - - - - - 
+: 1.126 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1030, 'value': 1030, 'attn_wts': 0, 'len': 1030}
+- - - - - - - - - - - - - - - - - - - 
+: 1.122 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1031, 'value': 1031, 'attn_wts': 0, 'len': 1031}
+- - - - - - - - - - - - - - - - - - - 
+: 1.085 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1032, 'value': 1032, 'attn_wts': 0, 'len': 1032}
+- - - - - - - - - - - - - - - - - - - 
+: 1.124 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1033, 'value': 1033, 'attn_wts': 0, 'len': 1033}
+- - - - - - - - - - - - - - - - - - - 
+: 1.116 ms
+Hopformer Cache Segment: 0.102 ms
+Total Attention {'key': 1034, 'value': 1034, 'attn_wts': 0, 'len': 1034}
+- - - - - - - - - - - - - - - - - - - 
+: 1.110 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1035, 'value': 1035, 'attn_wts': 0, 'len': 1035}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1036, 'value': 1036, 'attn_wts': 0, 'len': 1036}
+- - - - - - - - - - - - - - - - - - - 
+: 1.115 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1037, 'value': 1037, 'attn_wts': 0, 'len': 1037}
+- - - - - - - - - - - - - - - - - - - 
+: 1.093 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1038, 'value': 1038, 'attn_wts': 0, 'len': 1038}
+- - - - - - - - - - - - - - - - - - - 
+: 1.111 ms
+Hopformer Cache Segment: 0.103 ms
+Total Attention {'key': 1039, 'value': 1039, 'attn_wts': 0, 'len': 1039}
+- - - - - - - - - - - - - - - - - - - 
+: 1.070 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1040, 'value': 1040, 'attn_wts': 0, 'len': 1040}
+- - - - - - - - - - - - - - - - - - - 
+: 1.099 ms
+Hopformer Cache Segment: 0.102 ms
+Total Attention {'key': 1041, 'value': 1041, 'attn_wts': 0, 'len': 1041}
+- - - - - - - - - - - - - - - - - - - 
+: 1.106 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1042, 'value': 1042, 'attn_wts': 0, 'len': 1042}
+- - - - - - - - - - - - - - - - - - - 
+: 1.105 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1043, 'value': 1043, 'attn_wts': 0, 'len': 1043}
+- - - - - - - - - - - - - - - - - - - 
+: 1.077 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1044, 'value': 1044, 'attn_wts': 0, 'len': 1044}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1045, 'value': 1045, 'attn_wts': 0, 'len': 1045}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1046, 'value': 1046, 'attn_wts': 0, 'len': 1046}
+- - - - - - - - - - - - - - - - - - - 
+: 1.147 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1047, 'value': 1047, 'attn_wts': 0, 'len': 1047}
+- - - - - - - - - - - - - - - - - - - 
+: 1.101 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1048, 'value': 1048, 'attn_wts': 0, 'len': 1048}
+- - - - - - - - - - - - - - - - - - - 
+: 1.146 ms
+Hopformer Cache Segment: 0.102 ms
+Total Attention {'key': 1049, 'value': 1049, 'attn_wts': 0, 'len': 1049}
+- - - - - - - - - - - - - - - - - - - 
+: 1.105 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1050, 'value': 1050, 'attn_wts': 0, 'len': 1050}
+- - - - - - - - - - - - - - - - - - - 
+: 1.125 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1051, 'value': 1051, 'attn_wts': 0, 'len': 1051}
+- - - - - - - - - - - - - - - - - - - 
+: 1.097 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1052, 'value': 1052, 'attn_wts': 0, 'len': 1052}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1053, 'value': 1053, 'attn_wts': 0, 'len': 1053}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1054, 'value': 1054, 'attn_wts': 0, 'len': 1054}
+- - - - - - - - - - - - - - - - - - - 
+: 1.071 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1055, 'value': 1055, 'attn_wts': 0, 'len': 1055}
+- - - - - - - - - - - - - - - - - - - 
+: 1.055 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1056, 'value': 1056, 'attn_wts': 0, 'len': 1056}
+- - - - - - - - - - - - - - - - - - - 
+: 1.119 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1057, 'value': 1057, 'attn_wts': 0, 'len': 1057}
+- - - - - - - - - - - - - - - - - - - 
+: 1.098 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1058, 'value': 1058, 'attn_wts': 0, 'len': 1058}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1059, 'value': 1059, 'attn_wts': 0, 'len': 1059}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1060, 'value': 1060, 'attn_wts': 0, 'len': 1060}
+- - - - - - - - - - - - - - - - - - - 
+: 1.093 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1061, 'value': 1061, 'attn_wts': 0, 'len': 1061}
+- - - - - - - - - - - - - - - - - - - 
+: 1.094 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1062, 'value': 1062, 'attn_wts': 0, 'len': 1062}
+- - - - - - - - - - - - - - - - - - - 
+: 1.121 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1063, 'value': 1063, 'attn_wts': 0, 'len': 1063}
+- - - - - - - - - - - - - - - - - - - 
+: 1.074 ms
+Hopformer Cache Segment: 0.102 ms
+Total Attention {'key': 1064, 'value': 1064, 'attn_wts': 0, 'len': 1064}
+- - - - - - - - - - - - - - - - - - - 
+: 1.128 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1065, 'value': 1065, 'attn_wts': 0, 'len': 1065}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1066, 'value': 1066, 'attn_wts': 0, 'len': 1066}
+- - - - - - - - - - - - - - - - - - - 
+: 1.094 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1067, 'value': 1067, 'attn_wts': 0, 'len': 1067}
+- - - - - - - - - - - - - - - - - - - 
+: 1.128 ms
+Hopformer Cache Segment: 0.102 ms
+Total Attention {'key': 1068, 'value': 1068, 'attn_wts': 0, 'len': 1068}
+- - - - - - - - - - - - - - - - - - - 
+: 1.110 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1069, 'value': 1069, 'attn_wts': 0, 'len': 1069}
+- - - - - - - - - - - - - - - - - - - 
+: 1.080 ms
+Hopformer Cache Segment: 0.108 ms
+Total Attention {'key': 1070, 'value': 1070, 'attn_wts': 0, 'len': 1070}
+- - - - - - - - - - - - - - - - - - - 
+: 1.147 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1071, 'value': 1071, 'attn_wts': 0, 'len': 1071}
+- - - - - - - - - - - - - - - - - - - 
+: 1.108 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1072, 'value': 1072, 'attn_wts': 0, 'len': 1072}
+- - - - - - - - - - - - - - - - - - - 
+: 1.117 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1073, 'value': 1073, 'attn_wts': 0, 'len': 1073}
+- - - - - - - - - - - - - - - - - - - 
+: 1.066 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1074, 'value': 1074, 'attn_wts': 0, 'len': 1074}
+- - - - - - - - - - - - - - - - - - - 
+: 1.088 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1075, 'value': 1075, 'attn_wts': 0, 'len': 1075}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1076, 'value': 1076, 'attn_wts': 0, 'len': 1076}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1077, 'value': 1077, 'attn_wts': 0, 'len': 1077}
+- - - - - - - - - - - - - - - - - - - 
+: 1.094 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1078, 'value': 1078, 'attn_wts': 0, 'len': 1078}
+- - - - - - - - - - - - - - - - - - - 
+: 1.113 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1079, 'value': 1079, 'attn_wts': 0, 'len': 1079}
+- - - - - - - - - - - - - - - - - - - 
+: 1.084 ms
+Hopformer Cache Segment: 0.102 ms
+Total Attention {'key': 1080, 'value': 1080, 'attn_wts': 0, 'len': 1080}
+- - - - - - - - - - - - - - - - - - - 
+: 1.155 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1081, 'value': 1081, 'attn_wts': 0, 'len': 1081}
+- - - - - - - - - - - - - - - - - - - 
+: 1.096 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1082, 'value': 1082, 'attn_wts': 0, 'len': 1082}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.083 ms
+Total Attention {'key': 1083, 'value': 1083, 'attn_wts': 0, 'len': 1083}
+- - - - - - - - - - - - - - - - - - - 
+: 1.054 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1084, 'value': 1084, 'attn_wts': 0, 'len': 1084}
+- - - - - - - - - - - - - - - - - - - 
+: 1.062 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1085, 'value': 1085, 'attn_wts': 0, 'len': 1085}
+- - - - - - - - - - - - - - - - - - - 
+: 1.097 ms
+Hopformer Cache Segment: 0.104 ms
+Total Attention {'key': 1086, 'value': 1086, 'attn_wts': 0, 'len': 1086}
+- - - - - - - - - - - - - - - - - - - 
+: 1.107 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1087, 'value': 1087, 'attn_wts': 0, 'len': 1087}
+- - - - - - - - - - - - - - - - - - - 
+: 1.076 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1088, 'value': 1088, 'attn_wts': 0, 'len': 1088}
+- - - - - - - - - - - - - - - - - - - 
+: 1.126 ms
+Hopformer Cache Segment: 0.102 ms
+Total Attention {'key': 1089, 'value': 1089, 'attn_wts': 0, 'len': 1089}
+- - - - - - - - - - - - - - - - - - - 
+: 1.098 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1090, 'value': 1090, 'attn_wts': 0, 'len': 1090}
+- - - - - - - - - - - - - - - - - - - 
+: 1.081 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1091, 'value': 1091, 'attn_wts': 0, 'len': 1091}
+- - - - - - - - - - - - - - - - - - - 
+: 1.114 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1092, 'value': 1092, 'attn_wts': 0, 'len': 1092}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1093, 'value': 1093, 'attn_wts': 0, 'len': 1093}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1094, 'value': 1094, 'attn_wts': 0, 'len': 1094}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1095, 'value': 1095, 'attn_wts': 0, 'len': 1095}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1096, 'value': 1096, 'attn_wts': 0, 'len': 1096}
+- - - - - - - - - - - - - - - - - - - 
+: 1.094 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1097, 'value': 1097, 'attn_wts': 0, 'len': 1097}
+- - - - - - - - - - - - - - - - - - - 
+: 1.070 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1098, 'value': 1098, 'attn_wts': 0, 'len': 1098}
+- - - - - - - - - - - - - - - - - - - 
+: 1.093 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1099, 'value': 1099, 'attn_wts': 0, 'len': 1099}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1100, 'value': 1100, 'attn_wts': 0, 'len': 1100}
+- - - - - - - - - - - - - - - - - - - 
+: 1.117 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1101, 'value': 1101, 'attn_wts': 0, 'len': 1101}
+- - - - - - - - - - - - - - - - - - - 
+: 1.084 ms
+Hopformer Cache Segment: 0.107 ms
+Total Attention {'key': 1102, 'value': 1102, 'attn_wts': 0, 'len': 1102}
+- - - - - - - - - - - - - - - - - - - 
+: 1.110 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1103, 'value': 1103, 'attn_wts': 0, 'len': 1103}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.103 ms
+Total Attention {'key': 1104, 'value': 1104, 'attn_wts': 0, 'len': 1104}
+- - - - - - - - - - - - - - - - - - - 
+: 1.152 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1105, 'value': 1105, 'attn_wts': 0, 'len': 1105}
+- - - - - - - - - - - - - - - - - - - 
+: 1.081 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1106, 'value': 1106, 'attn_wts': 0, 'len': 1106}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1107, 'value': 1107, 'attn_wts': 0, 'len': 1107}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1108, 'value': 1108, 'attn_wts': 0, 'len': 1108}
+- - - - - - - - - - - - - - - - - - - 
+: 1.099 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1109, 'value': 1109, 'attn_wts': 0, 'len': 1109}
+- - - - - - - - - - - - - - - - - - - 
+: 1.108 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1110, 'value': 1110, 'attn_wts': 0, 'len': 1110}
+- - - - - - - - - - - - - - - - - - - 
+: 1.108 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1111, 'value': 1111, 'attn_wts': 0, 'len': 1111}
+- - - - - - - - - - - - - - - - - - - 
+: 1.107 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1112, 'value': 1112, 'attn_wts': 0, 'len': 1112}
+- - - - - - - - - - - - - - - - - - - 
+: 1.116 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1113, 'value': 1113, 'attn_wts': 0, 'len': 1113}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1114, 'value': 1114, 'attn_wts': 0, 'len': 1114}
+- - - - - - - - - - - - - - - - - - - 
+: 1.104 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1115, 'value': 1115, 'attn_wts': 0, 'len': 1115}
+- - - - - - - - - - - - - - - - - - - 
+: 1.076 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1116, 'value': 1116, 'attn_wts': 0, 'len': 1116}
+- - - - - - - - - - - - - - - - - - - 
+: 1.080 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1117, 'value': 1117, 'attn_wts': 0, 'len': 1117}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1118, 'value': 1118, 'attn_wts': 0, 'len': 1118}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1119, 'value': 1119, 'attn_wts': 0, 'len': 1119}
+- - - - - - - - - - - - - - - - - - - 
+: 1.088 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1120, 'value': 1120, 'attn_wts': 0, 'len': 1120}
+- - - - - - - - - - - - - - - - - - - 
+: 1.105 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1121, 'value': 1121, 'attn_wts': 0, 'len': 1121}
+- - - - - - - - - - - - - - - - - - - 
+: 1.098 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1122, 'value': 1122, 'attn_wts': 0, 'len': 1122}
+- - - - - - - - - - - - - - - - - - - 
+: 1.077 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1123, 'value': 1123, 'attn_wts': 0, 'len': 1123}
+- - - - - - - - - - - - - - - - - - - 
+: 1.102 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1124, 'value': 1124, 'attn_wts': 0, 'len': 1124}
+- - - - - - - - - - - - - - - - - - - 
+: 1.116 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1125, 'value': 1125, 'attn_wts': 0, 'len': 1125}
+- - - - - - - - - - - - - - - - - - - 
+: 1.117 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1126, 'value': 1126, 'attn_wts': 0, 'len': 1126}
+- - - - - - - - - - - - - - - - - - - 
+: 1.106 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1127, 'value': 1127, 'attn_wts': 0, 'len': 1127}
+- - - - - - - - - - - - - - - - - - - 
+: 1.094 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1128, 'value': 1128, 'attn_wts': 0, 'len': 1128}
+- - - - - - - - - - - - - - - - - - - 
+: 1.074 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1129, 'value': 1129, 'attn_wts': 0, 'len': 1129}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1130, 'value': 1130, 'attn_wts': 0, 'len': 1130}
+- - - - - - - - - - - - - - - - - - - 
+: 1.085 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1131, 'value': 1131, 'attn_wts': 0, 'len': 1131}
+- - - - - - - - - - - - - - - - - - - 
+: 1.051 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1132, 'value': 1132, 'attn_wts': 0, 'len': 1132}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1133, 'value': 1133, 'attn_wts': 0, 'len': 1133}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1134, 'value': 1134, 'attn_wts': 0, 'len': 1134}
+- - - - - - - - - - - - - - - - - - - 
+: 1.108 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1135, 'value': 1135, 'attn_wts': 0, 'len': 1135}
+- - - - - - - - - - - - - - - - - - - 
+: 1.072 ms
+Hopformer Cache Segment: 0.103 ms
+Total Attention {'key': 1136, 'value': 1136, 'attn_wts': 0, 'len': 1136}
+- - - - - - - - - - - - - - - - - - - 
+: 1.146 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1137, 'value': 1137, 'attn_wts': 0, 'len': 1137}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1138, 'value': 1138, 'attn_wts': 0, 'len': 1138}
+- - - - - - - - - - - - - - - - - - - 
+: 1.094 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1139, 'value': 1139, 'attn_wts': 0, 'len': 1139}
+- - - - - - - - - - - - - - - - - - - 
+: 1.110 ms
+Hopformer Cache Segment: 0.104 ms
+Total Attention {'key': 1140, 'value': 1140, 'attn_wts': 0, 'len': 1140}
+- - - - - - - - - - - - - - - - - - - 
+: 1.119 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1141, 'value': 1141, 'attn_wts': 0, 'len': 1141}
+- - - - - - - - - - - - - - - - - - - 
+: 1.056 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1142, 'value': 1142, 'attn_wts': 0, 'len': 1142}
+- - - - - - - - - - - - - - - - - - - 
+: 1.067 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1143, 'value': 1143, 'attn_wts': 0, 'len': 1143}
+- - - - - - - - - - - - - - - - - - - 
+: 1.108 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1144, 'value': 1144, 'attn_wts': 0, 'len': 1144}
+- - - - - - - - - - - - - - - - - - - 
+: 1.120 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1145, 'value': 1145, 'attn_wts': 0, 'len': 1145}
+- - - - - - - - - - - - - - - - - - - 
+: 1.098 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1146, 'value': 1146, 'attn_wts': 0, 'len': 1146}
+- - - - - - - - - - - - - - - - - - - 
+: 1.095 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1147, 'value': 1147, 'attn_wts': 0, 'len': 1147}
+- - - - - - - - - - - - - - - - - - - 
+: 1.083 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1148, 'value': 1148, 'attn_wts': 0, 'len': 1148}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1149, 'value': 1149, 'attn_wts': 0, 'len': 1149}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1150, 'value': 1150, 'attn_wts': 0, 'len': 1150}
+- - - - - - - - - - - - - - - - - - - 
+: 1.075 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1151, 'value': 1151, 'attn_wts': 0, 'len': 1151}
+- - - - - - - - - - - - - - - - - - - 
+: 1.104 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1152, 'value': 1152, 'attn_wts': 0, 'len': 1152}
+- - - - - - - - - - - - - - - - - - - 
+: 1.132 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1153, 'value': 1153, 'attn_wts': 0, 'len': 1153}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1154, 'value': 1154, 'attn_wts': 0, 'len': 1154}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1155, 'value': 1155, 'attn_wts': 0, 'len': 1155}
+- - - - - - - - - - - - - - - - - - - 
+: 1.083 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1156, 'value': 1156, 'attn_wts': 0, 'len': 1156}
+- - - - - - - - - - - - - - - - - - - 
+: 1.076 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1157, 'value': 1157, 'attn_wts': 0, 'len': 1157}
+- - - - - - - - - - - - - - - - - - - 
+: 1.093 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1158, 'value': 1158, 'attn_wts': 0, 'len': 1158}
+- - - - - - - - - - - - - - - - - - - 
+: 1.130 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1159, 'value': 1159, 'attn_wts': 0, 'len': 1159}
+- - - - - - - - - - - - - - - - - - - 
+: 1.075 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1160, 'value': 1160, 'attn_wts': 0, 'len': 1160}
+- - - - - - - - - - - - - - - - - - - 
+: 1.119 ms
+Hopformer Cache Segment: 0.103 ms
+Total Attention {'key': 1161, 'value': 1161, 'attn_wts': 0, 'len': 1161}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1162, 'value': 1162, 'attn_wts': 0, 'len': 1162}
+- - - - - - - - - - - - - - - - - - - 
+: 1.107 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1163, 'value': 1163, 'attn_wts': 0, 'len': 1163}
+- - - - - - - - - - - - - - - - - - - 
+: 1.110 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1164, 'value': 1164, 'attn_wts': 0, 'len': 1164}
+- - - - - - - - - - - - - - - - - - - 
+: 1.100 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1165, 'value': 1165, 'attn_wts': 0, 'len': 1165}
+- - - - - - - - - - - - - - - - - - - 
+: 1.108 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1166, 'value': 1166, 'attn_wts': 0, 'len': 1166}
+- - - - - - - - - - - - - - - - - - - 
+: 1.092 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1167, 'value': 1167, 'attn_wts': 0, 'len': 1167}
+- - - - - - - - - - - - - - - - - - - 
+: 1.093 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1168, 'value': 1168, 'attn_wts': 0, 'len': 1168}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1169, 'value': 1169, 'attn_wts': 0, 'len': 1169}
+- - - - - - - - - - - - - - - - - - - 
+: 1.110 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1170, 'value': 1170, 'attn_wts': 0, 'len': 1170}
+- - - - - - - - - - - - - - - - - - - 
+: 1.123 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1171, 'value': 1171, 'attn_wts': 0, 'len': 1171}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1172, 'value': 1172, 'attn_wts': 0, 'len': 1172}
+- - - - - - - - - - - - - - - - - - - 
+: 1.139 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1173, 'value': 1173, 'attn_wts': 0, 'len': 1173}
+- - - - - - - - - - - - - - - - - - - 
+: 1.106 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1174, 'value': 1174, 'attn_wts': 0, 'len': 1174}
+- - - - - - - - - - - - - - - - - - - 
+: 1.123 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1175, 'value': 1175, 'attn_wts': 0, 'len': 1175}
+- - - - - - - - - - - - - - - - - - - 
+: 1.121 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1176, 'value': 1176, 'attn_wts': 0, 'len': 1176}
+- - - - - - - - - - - - - - - - - - - 
+: 1.107 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1177, 'value': 1177, 'attn_wts': 0, 'len': 1177}
+- - - - - - - - - - - - - - - - - - - 
+: 1.108 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1178, 'value': 1178, 'attn_wts': 0, 'len': 1178}
+- - - - - - - - - - - - - - - - - - - 
+: 1.092 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1179, 'value': 1179, 'attn_wts': 0, 'len': 1179}
+- - - - - - - - - - - - - - - - - - - 
+: 1.071 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1180, 'value': 1180, 'attn_wts': 0, 'len': 1180}
+- - - - - - - - - - - - - - - - - - - 
+: 1.063 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1181, 'value': 1181, 'attn_wts': 0, 'len': 1181}
+- - - - - - - - - - - - - - - - - - - 
+: 1.101 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1182, 'value': 1182, 'attn_wts': 0, 'len': 1182}
+- - - - - - - - - - - - - - - - - - - 
+: 1.110 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1183, 'value': 1183, 'attn_wts': 0, 'len': 1183}
+- - - - - - - - - - - - - - - - - - - 
+: 1.115 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1184, 'value': 1184, 'attn_wts': 0, 'len': 1184}
+- - - - - - - - - - - - - - - - - - - 
+: 1.128 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1185, 'value': 1185, 'attn_wts': 0, 'len': 1185}
+- - - - - - - - - - - - - - - - - - - 
+: 1.100 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1186, 'value': 1186, 'attn_wts': 0, 'len': 1186}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.104 ms
+Total Attention {'key': 1187, 'value': 1187, 'attn_wts': 0, 'len': 1187}
+- - - - - - - - - - - - - - - - - - - 
+: 1.149 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1188, 'value': 1188, 'attn_wts': 0, 'len': 1188}
+- - - - - - - - - - - - - - - - - - - 
+: 1.096 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1189, 'value': 1189, 'attn_wts': 0, 'len': 1189}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1190, 'value': 1190, 'attn_wts': 0, 'len': 1190}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1191, 'value': 1191, 'attn_wts': 0, 'len': 1191}
+- - - - - - - - - - - - - - - - - - - 
+: 1.115 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1192, 'value': 1192, 'attn_wts': 0, 'len': 1192}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1193, 'value': 1193, 'attn_wts': 0, 'len': 1193}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1194, 'value': 1194, 'attn_wts': 0, 'len': 1194}
+- - - - - - - - - - - - - - - - - - - 
+: 1.114 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1195, 'value': 1195, 'attn_wts': 0, 'len': 1195}
+- - - - - - - - - - - - - - - - - - - 
+: 1.077 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1196, 'value': 1196, 'attn_wts': 0, 'len': 1196}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1197, 'value': 1197, 'attn_wts': 0, 'len': 1197}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1198, 'value': 1198, 'attn_wts': 0, 'len': 1198}
+- - - - - - - - - - - - - - - - - - - 
+: 1.110 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1199, 'value': 1199, 'attn_wts': 0, 'len': 1199}
+- - - - - - - - - - - - - - - - - - - 
+: 1.057 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1200, 'value': 1200, 'attn_wts': 0, 'len': 1200}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1201, 'value': 1201, 'attn_wts': 0, 'len': 1201}
+- - - - - - - - - - - - - - - - - - - 
+: 1.129 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1202, 'value': 1202, 'attn_wts': 0, 'len': 1202}
+- - - - - - - - - - - - - - - - - - - 
+: 1.085 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1203, 'value': 1203, 'attn_wts': 0, 'len': 1203}
+- - - - - - - - - - - - - - - - - - - 
+: 1.080 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1204, 'value': 1204, 'attn_wts': 0, 'len': 1204}
+- - - - - - - - - - - - - - - - - - - 
+: 1.079 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1205, 'value': 1205, 'attn_wts': 0, 'len': 1205}
+- - - - - - - - - - - - - - - - - - - 
+: 1.112 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1206, 'value': 1206, 'attn_wts': 0, 'len': 1206}
+- - - - - - - - - - - - - - - - - - - 
+: 1.081 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1207, 'value': 1207, 'attn_wts': 0, 'len': 1207}
+- - - - - - - - - - - - - - - - - - - 
+: 1.113 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1208, 'value': 1208, 'attn_wts': 0, 'len': 1208}
+- - - - - - - - - - - - - - - - - - - 
+: 1.127 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1209, 'value': 1209, 'attn_wts': 0, 'len': 1209}
+- - - - - - - - - - - - - - - - - - - 
+: 1.054 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1210, 'value': 1210, 'attn_wts': 0, 'len': 1210}
+- - - - - - - - - - - - - - - - - - - 
+: 1.048 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1211, 'value': 1211, 'attn_wts': 0, 'len': 1211}
+- - - - - - - - - - - - - - - - - - - 
+: 1.075 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1212, 'value': 1212, 'attn_wts': 0, 'len': 1212}
+- - - - - - - - - - - - - - - - - - - 
+: 1.114 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1213, 'value': 1213, 'attn_wts': 0, 'len': 1213}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1214, 'value': 1214, 'attn_wts': 0, 'len': 1214}
+- - - - - - - - - - - - - - - - - - - 
+: 1.057 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1215, 'value': 1215, 'attn_wts': 0, 'len': 1215}
+- - - - - - - - - - - - - - - - - - - 
+: 1.085 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1216, 'value': 1216, 'attn_wts': 0, 'len': 1216}
+- - - - - - - - - - - - - - - - - - - 
+: 1.107 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1217, 'value': 1217, 'attn_wts': 0, 'len': 1217}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1218, 'value': 1218, 'attn_wts': 0, 'len': 1218}
+- - - - - - - - - - - - - - - - - - - 
+: 1.102 ms
+Hopformer Cache Segment: 0.083 ms
+Total Attention {'key': 1219, 'value': 1219, 'attn_wts': 0, 'len': 1219}
+- - - - - - - - - - - - - - - - - - - 
+: 1.079 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1220, 'value': 1220, 'attn_wts': 0, 'len': 1220}
+- - - - - - - - - - - - - - - - - - - 
+: 1.074 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1221, 'value': 1221, 'attn_wts': 0, 'len': 1221}
+- - - - - - - - - - - - - - - - - - - 
+: 1.080 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1222, 'value': 1222, 'attn_wts': 0, 'len': 1222}
+- - - - - - - - - - - - - - - - - - - 
+: 1.070 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1223, 'value': 1223, 'attn_wts': 0, 'len': 1223}
+- - - - - - - - - - - - - - - - - - - 
+: 1.113 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1224, 'value': 1224, 'attn_wts': 0, 'len': 1224}
+- - - - - - - - - - - - - - - - - - - 
+: 1.110 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1225, 'value': 1225, 'attn_wts': 0, 'len': 1225}
+- - - - - - - - - - - - - - - - - - - 
+: 1.118 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1226, 'value': 1226, 'attn_wts': 0, 'len': 1226}
+- - - - - - - - - - - - - - - - - - - 
+: 1.078 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1227, 'value': 1227, 'attn_wts': 0, 'len': 1227}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1228, 'value': 1228, 'attn_wts': 0, 'len': 1228}
+- - - - - - - - - - - - - - - - - - - 
+: 1.079 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1229, 'value': 1229, 'attn_wts': 0, 'len': 1229}
+- - - - - - - - - - - - - - - - - - - 
+: 1.069 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1230, 'value': 1230, 'attn_wts': 0, 'len': 1230}
+- - - - - - - - - - - - - - - - - - - 
+: 1.111 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1231, 'value': 1231, 'attn_wts': 0, 'len': 1231}
+- - - - - - - - - - - - - - - - - - - 
+: 1.114 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1232, 'value': 1232, 'attn_wts': 0, 'len': 1232}
+- - - - - - - - - - - - - - - - - - - 
+: 1.111 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1233, 'value': 1233, 'attn_wts': 0, 'len': 1233}
+- - - - - - - - - - - - - - - - - - - 
+: 1.093 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1234, 'value': 1234, 'attn_wts': 0, 'len': 1234}
+- - - - - - - - - - - - - - - - - - - 
+: 1.085 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1235, 'value': 1235, 'attn_wts': 0, 'len': 1235}
+- - - - - - - - - - - - - - - - - - - 
+: 1.079 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1236, 'value': 1236, 'attn_wts': 0, 'len': 1236}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1237, 'value': 1237, 'attn_wts': 0, 'len': 1237}
+- - - - - - - - - - - - - - - - - - - 
+: 1.096 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1238, 'value': 1238, 'attn_wts': 0, 'len': 1238}
+- - - - - - - - - - - - - - - - - - - 
+: 1.096 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1239, 'value': 1239, 'attn_wts': 0, 'len': 1239}
+- - - - - - - - - - - - - - - - - - - 
+: 1.110 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1240, 'value': 1240, 'attn_wts': 0, 'len': 1240}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1241, 'value': 1241, 'attn_wts': 0, 'len': 1241}
+- - - - - - - - - - - - - - - - - - - 
+: 1.096 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1242, 'value': 1242, 'attn_wts': 0, 'len': 1242}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.083 ms
+Total Attention {'key': 1243, 'value': 1243, 'attn_wts': 0, 'len': 1243}
+- - - - - - - - - - - - - - - - - - - 
+: 1.075 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1244, 'value': 1244, 'attn_wts': 0, 'len': 1244}
+- - - - - - - - - - - - - - - - - - - 
+: 1.095 ms
+Hopformer Cache Segment: 0.082 ms
+Total Attention {'key': 1245, 'value': 1245, 'attn_wts': 0, 'len': 1245}
+- - - - - - - - - - - - - - - - - - - 
+: 1.055 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1246, 'value': 1246, 'attn_wts': 0, 'len': 1246}
+- - - - - - - - - - - - - - - - - - - 
+: 1.121 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1247, 'value': 1247, 'attn_wts': 0, 'len': 1247}
+- - - - - - - - - - - - - - - - - - - 
+: 1.067 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1248, 'value': 1248, 'attn_wts': 0, 'len': 1248}
+- - - - - - - - - - - - - - - - - - - 
+: 1.106 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1249, 'value': 1249, 'attn_wts': 0, 'len': 1249}
+- - - - - - - - - - - - - - - - - - - 
+: 1.102 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1250, 'value': 1250, 'attn_wts': 0, 'len': 1250}
+- - - - - - - - - - - - - - - - - - - 
+: 1.070 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1251, 'value': 1251, 'attn_wts': 0, 'len': 1251}
+- - - - - - - - - - - - - - - - - - - 
+: 1.092 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1252, 'value': 1252, 'attn_wts': 0, 'len': 1252}
+- - - - - - - - - - - - - - - - - - - 
+: 1.096 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1253, 'value': 1253, 'attn_wts': 0, 'len': 1253}
+- - - - - - - - - - - - - - - - - - - 
+: 1.099 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1254, 'value': 1254, 'attn_wts': 0, 'len': 1254}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1255, 'value': 1255, 'attn_wts': 0, 'len': 1255}
+- - - - - - - - - - - - - - - - - - - 
+: 1.059 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1256, 'value': 1256, 'attn_wts': 0, 'len': 1256}
+- - - - - - - - - - - - - - - - - - - 
+: 1.126 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1257, 'value': 1257, 'attn_wts': 0, 'len': 1257}
+- - - - - - - - - - - - - - - - - - - 
+: 1.070 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1258, 'value': 1258, 'attn_wts': 0, 'len': 1258}
+- - - - - - - - - - - - - - - - - - - 
+: 1.107 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1259, 'value': 1259, 'attn_wts': 0, 'len': 1259}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1260, 'value': 1260, 'attn_wts': 0, 'len': 1260}
+- - - - - - - - - - - - - - - - - - - 
+: 1.107 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1261, 'value': 1261, 'attn_wts': 0, 'len': 1261}
+- - - - - - - - - - - - - - - - - - - 
+: 1.060 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1262, 'value': 1262, 'attn_wts': 0, 'len': 1262}
+- - - - - - - - - - - - - - - - - - - 
+: 1.079 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1263, 'value': 1263, 'attn_wts': 0, 'len': 1263}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1264, 'value': 1264, 'attn_wts': 0, 'len': 1264}
+- - - - - - - - - - - - - - - - - - - 
+: 1.120 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1265, 'value': 1265, 'attn_wts': 0, 'len': 1265}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1266, 'value': 1266, 'attn_wts': 0, 'len': 1266}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1267, 'value': 1267, 'attn_wts': 0, 'len': 1267}
+- - - - - - - - - - - - - - - - - - - 
+: 1.096 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1268, 'value': 1268, 'attn_wts': 0, 'len': 1268}
+- - - - - - - - - - - - - - - - - - - 
+: 1.112 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1269, 'value': 1269, 'attn_wts': 0, 'len': 1269}
+- - - - - - - - - - - - - - - - - - - 
+: 1.076 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1270, 'value': 1270, 'attn_wts': 0, 'len': 1270}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1271, 'value': 1271, 'attn_wts': 0, 'len': 1271}
+- - - - - - - - - - - - - - - - - - - 
+: 1.081 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1272, 'value': 1272, 'attn_wts': 0, 'len': 1272}
+- - - - - - - - - - - - - - - - - - - 
+: 1.096 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1273, 'value': 1273, 'attn_wts': 0, 'len': 1273}
+- - - - - - - - - - - - - - - - - - - 
+: 1.100 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1274, 'value': 1274, 'attn_wts': 0, 'len': 1274}
+- - - - - - - - - - - - - - - - - - - 
+: 1.060 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1275, 'value': 1275, 'attn_wts': 0, 'len': 1275}
+- - - - - - - - - - - - - - - - - - - 
+: 1.075 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1276, 'value': 1276, 'attn_wts': 0, 'len': 1276}
+- - - - - - - - - - - - - - - - - - - 
+: 1.100 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1277, 'value': 1277, 'attn_wts': 0, 'len': 1277}
+- - - - - - - - - - - - - - - - - - - 
+: 1.112 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1278, 'value': 1278, 'attn_wts': 0, 'len': 1278}
+- - - - - - - - - - - - - - - - - - - 
+: 1.073 ms
+Hopformer Cache Segment: 0.084 ms
+Total Attention {'key': 1279, 'value': 1279, 'attn_wts': 0, 'len': 1279}
+- - - - - - - - - - - - - - - - - - - 
+: 1.071 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1280, 'value': 1280, 'attn_wts': 0, 'len': 1280}
+- - - - - - - - - - - - - - - - - - - 
+: 1.084 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1281, 'value': 1281, 'attn_wts': 0, 'len': 1281}
+- - - - - - - - - - - - - - - - - - - 
+: 1.080 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1282, 'value': 1282, 'attn_wts': 0, 'len': 1282}
+- - - - - - - - - - - - - - - - - - - 
+: 1.099 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1283, 'value': 1283, 'attn_wts': 0, 'len': 1283}
+- - - - - - - - - - - - - - - - - - - 
+: 1.095 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1284, 'value': 1284, 'attn_wts': 0, 'len': 1284}
+- - - - - - - - - - - - - - - - - - - 
+: 1.069 ms
+Hopformer Cache Segment: 0.073 ms
+Total Attention {'key': 1285, 'value': 1285, 'attn_wts': 0, 'len': 1285}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1286, 'value': 1286, 'attn_wts': 0, 'len': 1286}
+- - - - - - - - - - - - - - - - - - - 
+: 1.118 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1287, 'value': 1287, 'attn_wts': 0, 'len': 1287}
+- - - - - - - - - - - - - - - - - - - 
+: 1.132 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1288, 'value': 1288, 'attn_wts': 0, 'len': 1288}
+- - - - - - - - - - - - - - - - - - - 
+: 1.121 ms
+Hopformer Cache Segment: 0.077 ms
+Total Attention {'key': 1289, 'value': 1289, 'attn_wts': 0, 'len': 1289}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1290, 'value': 1290, 'attn_wts': 0, 'len': 1290}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1291, 'value': 1291, 'attn_wts': 0, 'len': 1291}
+- - - - - - - - - - - - - - - - - - - 
+: 1.088 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1292, 'value': 1292, 'attn_wts': 0, 'len': 1292}
+- - - - - - - - - - - - - - - - - - - 
+: 1.139 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1293, 'value': 1293, 'attn_wts': 0, 'len': 1293}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.065 ms
+Total Attention {'key': 1294, 'value': 1294, 'attn_wts': 0, 'len': 1294}
+- - - - - - - - - - - - - - - - - - - 
+: 1.088 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1295, 'value': 1295, 'attn_wts': 0, 'len': 1295}
+- - - - - - - - - - - - - - - - - - - 
+: 1.105 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1296, 'value': 1296, 'attn_wts': 0, 'len': 1296}
+- - - - - - - - - - - - - - - - - - - 
+: 1.122 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1297, 'value': 1297, 'attn_wts': 0, 'len': 1297}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1298, 'value': 1298, 'attn_wts': 0, 'len': 1298}
+- - - - - - - - - - - - - - - - - - - 
+: 1.084 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1299, 'value': 1299, 'attn_wts': 0, 'len': 1299}
+- - - - - - - - - - - - - - - - - - - 
+: 1.126 ms
+Hopformer Cache Segment: 0.084 ms
+Total Attention {'key': 1300, 'value': 1300, 'attn_wts': 0, 'len': 1300}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1301, 'value': 1301, 'attn_wts': 0, 'len': 1301}
+- - - - - - - - - - - - - - - - - - - 
+: 1.093 ms
+Hopformer Cache Segment: 0.079 ms
+Total Attention {'key': 1302, 'value': 1302, 'attn_wts': 0, 'len': 1302}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1303, 'value': 1303, 'attn_wts': 0, 'len': 1303}
+- - - - - - - - - - - - - - - - - - - 
+: 1.107 ms
+Hopformer Cache Segment: 0.076 ms
+Total Attention {'key': 1304, 'value': 1304, 'attn_wts': 0, 'len': 1304}
+- - - - - - - - - - - - - - - - - - - 
+: 1.101 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1305, 'value': 1305, 'attn_wts': 0, 'len': 1305}
+- - - - - - - - - - - - - - - - - - - 
+: 1.095 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1306, 'value': 1306, 'attn_wts': 0, 'len': 1306}
+- - - - - - - - - - - - - - - - - - - 
+: 1.083 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1307, 'value': 1307, 'attn_wts': 0, 'len': 1307}
+- - - - - - - - - - - - - - - - - - - 
+: 1.106 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1308, 'value': 1308, 'attn_wts': 0, 'len': 1308}
+- - - - - - - - - - - - - - - - - - - 
+: 1.088 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1309, 'value': 1309, 'attn_wts': 0, 'len': 1309}
+- - - - - - - - - - - - - - - - - - - 
+: 1.080 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1310, 'value': 1310, 'attn_wts': 0, 'len': 1310}
+- - - - - - - - - - - - - - - - - - - 
+: 1.069 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1311, 'value': 1311, 'attn_wts': 0, 'len': 1311}
+- - - - - - - - - - - - - - - - - - - 
+: 1.092 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1312, 'value': 1312, 'attn_wts': 0, 'len': 1312}
+- - - - - - - - - - - - - - - - - - - 
+: 1.115 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1313, 'value': 1313, 'attn_wts': 0, 'len': 1313}
+- - - - - - - - - - - - - - - - - - - 
+: 1.081 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1314, 'value': 1314, 'attn_wts': 0, 'len': 1314}
+- - - - - - - - - - - - - - - - - - - 
+: 1.064 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1315, 'value': 1315, 'attn_wts': 0, 'len': 1315}
+- - - - - - - - - - - - - - - - - - - 
+: 1.100 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1316, 'value': 1316, 'attn_wts': 0, 'len': 1316}
+- - - - - - - - - - - - - - - - - - - 
+: 1.085 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1317, 'value': 1317, 'attn_wts': 0, 'len': 1317}
+- - - - - - - - - - - - - - - - - - - 
+: 1.077 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1318, 'value': 1318, 'attn_wts': 0, 'len': 1318}
+- - - - - - - - - - - - - - - - - - - 
+: 1.098 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1319, 'value': 1319, 'attn_wts': 0, 'len': 1319}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1320, 'value': 1320, 'attn_wts': 0, 'len': 1320}
+- - - - - - - - - - - - - - - - - - - 
+: 1.096 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1321, 'value': 1321, 'attn_wts': 0, 'len': 1321}
+- - - - - - - - - - - - - - - - - - - 
+: 1.074 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1322, 'value': 1322, 'attn_wts': 0, 'len': 1322}
+- - - - - - - - - - - - - - - - - - - 
+: 1.097 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1323, 'value': 1323, 'attn_wts': 0, 'len': 1323}
+- - - - - - - - - - - - - - - - - - - 
+: 1.097 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1324, 'value': 1324, 'attn_wts': 0, 'len': 1324}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1325, 'value': 1325, 'attn_wts': 0, 'len': 1325}
+- - - - - - - - - - - - - - - - - - - 
+: 1.079 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1326, 'value': 1326, 'attn_wts': 0, 'len': 1326}
+- - - - - - - - - - - - - - - - - - - 
+: 1.097 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1327, 'value': 1327, 'attn_wts': 0, 'len': 1327}
+- - - - - - - - - - - - - - - - - - - 
+: 1.084 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1328, 'value': 1328, 'attn_wts': 0, 'len': 1328}
+- - - - - - - - - - - - - - - - - - - 
+: 1.098 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1329, 'value': 1329, 'attn_wts': 0, 'len': 1329}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1330, 'value': 1330, 'attn_wts': 0, 'len': 1330}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1331, 'value': 1331, 'attn_wts': 0, 'len': 1331}
+- - - - - - - - - - - - - - - - - - - 
+: 1.077 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1332, 'value': 1332, 'attn_wts': 0, 'len': 1332}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1333, 'value': 1333, 'attn_wts': 0, 'len': 1333}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1334, 'value': 1334, 'attn_wts': 0, 'len': 1334}
+- - - - - - - - - - - - - - - - - - - 
+: 1.121 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1335, 'value': 1335, 'attn_wts': 0, 'len': 1335}
+- - - - - - - - - - - - - - - - - - - 
+: 1.073 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1336, 'value': 1336, 'attn_wts': 0, 'len': 1336}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1337, 'value': 1337, 'attn_wts': 0, 'len': 1337}
+- - - - - - - - - - - - - - - - - - - 
+: 1.047 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1338, 'value': 1338, 'attn_wts': 0, 'len': 1338}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1339, 'value': 1339, 'attn_wts': 0, 'len': 1339}
+- - - - - - - - - - - - - - - - - - - 
+: 1.092 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1340, 'value': 1340, 'attn_wts': 0, 'len': 1340}
+- - - - - - - - - - - - - - - - - - - 
+: 1.113 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1341, 'value': 1341, 'attn_wts': 0, 'len': 1341}
+- - - - - - - - - - - - - - - - - - - 
+: 1.065 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1342, 'value': 1342, 'attn_wts': 0, 'len': 1342}
+- - - - - - - - - - - - - - - - - - - 
+: 1.106 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1343, 'value': 1343, 'attn_wts': 0, 'len': 1343}
+- - - - - - - - - - - - - - - - - - - 
+: 1.098 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1344, 'value': 1344, 'attn_wts': 0, 'len': 1344}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1345, 'value': 1345, 'attn_wts': 0, 'len': 1345}
+- - - - - - - - - - - - - - - - - - - 
+: 1.100 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1346, 'value': 1346, 'attn_wts': 0, 'len': 1346}
+- - - - - - - - - - - - - - - - - - - 
+: 1.073 ms
+Hopformer Cache Segment: 0.083 ms
+Total Attention {'key': 1347, 'value': 1347, 'attn_wts': 0, 'len': 1347}
+- - - - - - - - - - - - - - - - - - - 
+: 1.079 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1348, 'value': 1348, 'attn_wts': 0, 'len': 1348}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.084 ms
+Total Attention {'key': 1349, 'value': 1349, 'attn_wts': 0, 'len': 1349}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1350, 'value': 1350, 'attn_wts': 0, 'len': 1350}
+- - - - - - - - - - - - - - - - - - - 
+: 1.071 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1351, 'value': 1351, 'attn_wts': 0, 'len': 1351}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1352, 'value': 1352, 'attn_wts': 0, 'len': 1352}
+- - - - - - - - - - - - - - - - - - - 
+: 1.064 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1353, 'value': 1353, 'attn_wts': 0, 'len': 1353}
+- - - - - - - - - - - - - - - - - - - 
+: 1.117 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1354, 'value': 1354, 'attn_wts': 0, 'len': 1354}
+- - - - - - - - - - - - - - - - - - - 
+: 1.085 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1355, 'value': 1355, 'attn_wts': 0, 'len': 1355}
+- - - - - - - - - - - - - - - - - - - 
+: 1.059 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1356, 'value': 1356, 'attn_wts': 0, 'len': 1356}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1357, 'value': 1357, 'attn_wts': 0, 'len': 1357}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1358, 'value': 1358, 'attn_wts': 0, 'len': 1358}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1359, 'value': 1359, 'attn_wts': 0, 'len': 1359}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1360, 'value': 1360, 'attn_wts': 0, 'len': 1360}
+- - - - - - - - - - - - - - - - - - - 
+: 1.095 ms
+Hopformer Cache Segment: 0.083 ms
+Total Attention {'key': 1361, 'value': 1361, 'attn_wts': 0, 'len': 1361}
+- - - - - - - - - - - - - - - - - - - 
+: 1.099 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1362, 'value': 1362, 'attn_wts': 0, 'len': 1362}
+- - - - - - - - - - - - - - - - - - - 
+: 1.066 ms
+Hopformer Cache Segment: 0.084 ms
+Total Attention {'key': 1363, 'value': 1363, 'attn_wts': 0, 'len': 1363}
+- - - - - - - - - - - - - - - - - - - 
+: 1.051 ms
+Hopformer Cache Segment: 0.100 ms
+Total Attention {'key': 1364, 'value': 1364, 'attn_wts': 0, 'len': 1364}
+- - - - - - - - - - - - - - - - - - - 
+: 1.099 ms
+Hopformer Cache Segment: 0.076 ms
+Total Attention {'key': 1365, 'value': 1365, 'attn_wts': 0, 'len': 1365}
+- - - - - - - - - - - - - - - - - - - 
+: 1.055 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1366, 'value': 1366, 'attn_wts': 0, 'len': 1366}
+- - - - - - - - - - - - - - - - - - - 
+: 1.094 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1367, 'value': 1367, 'attn_wts': 0, 'len': 1367}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1368, 'value': 1368, 'attn_wts': 0, 'len': 1368}
+- - - - - - - - - - - - - - - - - - - 
+: 1.086 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1369, 'value': 1369, 'attn_wts': 0, 'len': 1369}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1370, 'value': 1370, 'attn_wts': 0, 'len': 1370}
+- - - - - - - - - - - - - - - - - - - 
+: 1.071 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1371, 'value': 1371, 'attn_wts': 0, 'len': 1371}
+- - - - - - - - - - - - - - - - - - - 
+: 1.084 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1372, 'value': 1372, 'attn_wts': 0, 'len': 1372}
+- - - - - - - - - - - - - - - - - - - 
+: 1.081 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1373, 'value': 1373, 'attn_wts': 0, 'len': 1373}
+- - - - - - - - - - - - - - - - - - - 
+: 1.075 ms
+Hopformer Cache Segment: 0.099 ms
+Total Attention {'key': 1374, 'value': 1374, 'attn_wts': 0, 'len': 1374}
+- - - - - - - - - - - - - - - - - - - 
+: 1.115 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1375, 'value': 1375, 'attn_wts': 0, 'len': 1375}
+- - - - - - - - - - - - - - - - - - - 
+: 1.092 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1376, 'value': 1376, 'attn_wts': 0, 'len': 1376}
+- - - - - - - - - - - - - - - - - - - 
+: 1.102 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1377, 'value': 1377, 'attn_wts': 0, 'len': 1377}
+- - - - - - - - - - - - - - - - - - - 
+: 1.110 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1378, 'value': 1378, 'attn_wts': 0, 'len': 1378}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1379, 'value': 1379, 'attn_wts': 0, 'len': 1379}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1380, 'value': 1380, 'attn_wts': 0, 'len': 1380}
+- - - - - - - - - - - - - - - - - - - 
+: 1.084 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1381, 'value': 1381, 'attn_wts': 0, 'len': 1381}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1382, 'value': 1382, 'attn_wts': 0, 'len': 1382}
+- - - - - - - - - - - - - - - - - - - 
+: 1.097 ms
+Hopformer Cache Segment: 0.084 ms
+Total Attention {'key': 1383, 'value': 1383, 'attn_wts': 0, 'len': 1383}
+- - - - - - - - - - - - - - - - - - - 
+: 1.065 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1384, 'value': 1384, 'attn_wts': 0, 'len': 1384}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1385, 'value': 1385, 'attn_wts': 0, 'len': 1385}
+- - - - - - - - - - - - - - - - - - - 
+: 1.104 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1386, 'value': 1386, 'attn_wts': 0, 'len': 1386}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.082 ms
+Total Attention {'key': 1387, 'value': 1387, 'attn_wts': 0, 'len': 1387}
+- - - - - - - - - - - - - - - - - - - 
+: 1.067 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1388, 'value': 1388, 'attn_wts': 0, 'len': 1388}
+- - - - - - - - - - - - - - - - - - - 
+: 1.077 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1389, 'value': 1389, 'attn_wts': 0, 'len': 1389}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1390, 'value': 1390, 'attn_wts': 0, 'len': 1390}
+- - - - - - - - - - - - - - - - - - - 
+: 1.078 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1391, 'value': 1391, 'attn_wts': 0, 'len': 1391}
+- - - - - - - - - - - - - - - - - - - 
+: 1.067 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1392, 'value': 1392, 'attn_wts': 0, 'len': 1392}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1393, 'value': 1393, 'attn_wts': 0, 'len': 1393}
+- - - - - - - - - - - - - - - - - - - 
+: 1.067 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1394, 'value': 1394, 'attn_wts': 0, 'len': 1394}
+- - - - - - - - - - - - - - - - - - - 
+: 1.055 ms
+Hopformer Cache Segment: 0.073 ms
+Total Attention {'key': 1395, 'value': 1395, 'attn_wts': 0, 'len': 1395}
+- - - - - - - - - - - - - - - - - - - 
+: 1.053 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1396, 'value': 1396, 'attn_wts': 0, 'len': 1396}
+- - - - - - - - - - - - - - - - - - - 
+: 1.080 ms
+Hopformer Cache Segment: 0.084 ms
+Total Attention {'key': 1397, 'value': 1397, 'attn_wts': 0, 'len': 1397}
+- - - - - - - - - - - - - - - - - - - 
+: 1.088 ms
+Hopformer Cache Segment: 0.081 ms
+Total Attention {'key': 1398, 'value': 1398, 'attn_wts': 0, 'len': 1398}
+- - - - - - - - - - - - - - - - - - - 
+: 1.060 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1399, 'value': 1399, 'attn_wts': 0, 'len': 1399}
+- - - - - - - - - - - - - - - - - - - 
+: 1.093 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1400, 'value': 1400, 'attn_wts': 0, 'len': 1400}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.082 ms
+Total Attention {'key': 1401, 'value': 1401, 'attn_wts': 0, 'len': 1401}
+- - - - - - - - - - - - - - - - - - - 
+: 1.059 ms
+Hopformer Cache Segment: 0.084 ms
+Total Attention {'key': 1402, 'value': 1402, 'attn_wts': 0, 'len': 1402}
+- - - - - - - - - - - - - - - - - - - 
+: 1.083 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1403, 'value': 1403, 'attn_wts': 0, 'len': 1403}
+- - - - - - - - - - - - - - - - - - - 
+: 1.066 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1404, 'value': 1404, 'attn_wts': 0, 'len': 1404}
+- - - - - - - - - - - - - - - - - - - 
+: 1.081 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1405, 'value': 1405, 'attn_wts': 0, 'len': 1405}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1406, 'value': 1406, 'attn_wts': 0, 'len': 1406}
+- - - - - - - - - - - - - - - - - - - 
+: 1.066 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1407, 'value': 1407, 'attn_wts': 0, 'len': 1407}
+- - - - - - - - - - - - - - - - - - - 
+: 1.070 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1408, 'value': 1408, 'attn_wts': 0, 'len': 1408}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1409, 'value': 1409, 'attn_wts': 0, 'len': 1409}
+- - - - - - - - - - - - - - - - - - - 
+: 1.079 ms
+Hopformer Cache Segment: 0.097 ms
+Total Attention {'key': 1410, 'value': 1410, 'attn_wts': 0, 'len': 1410}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1411, 'value': 1411, 'attn_wts': 0, 'len': 1411}
+- - - - - - - - - - - - - - - - - - - 
+: 1.084 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1412, 'value': 1412, 'attn_wts': 0, 'len': 1412}
+- - - - - - - - - - - - - - - - - - - 
+: 1.053 ms
+Hopformer Cache Segment: 0.082 ms
+Total Attention {'key': 1413, 'value': 1413, 'attn_wts': 0, 'len': 1413}
+- - - - - - - - - - - - - - - - - - - 
+: 1.092 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1414, 'value': 1414, 'attn_wts': 0, 'len': 1414}
+- - - - - - - - - - - - - - - - - - - 
+: 1.098 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1415, 'value': 1415, 'attn_wts': 0, 'len': 1415}
+- - - - - - - - - - - - - - - - - - - 
+: 1.125 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1416, 'value': 1416, 'attn_wts': 0, 'len': 1416}
+- - - - - - - - - - - - - - - - - - - 
+: 1.076 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1417, 'value': 1417, 'attn_wts': 0, 'len': 1417}
+- - - - - - - - - - - - - - - - - - - 
+: 1.067 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1418, 'value': 1418, 'attn_wts': 0, 'len': 1418}
+- - - - - - - - - - - - - - - - - - - 
+: 1.077 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1419, 'value': 1419, 'attn_wts': 0, 'len': 1419}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1420, 'value': 1420, 'attn_wts': 0, 'len': 1420}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.084 ms
+Total Attention {'key': 1421, 'value': 1421, 'attn_wts': 0, 'len': 1421}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1422, 'value': 1422, 'attn_wts': 0, 'len': 1422}
+- - - - - - - - - - - - - - - - - - - 
+: 1.088 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1423, 'value': 1423, 'attn_wts': 0, 'len': 1423}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1424, 'value': 1424, 'attn_wts': 0, 'len': 1424}
+- - - - - - - - - - - - - - - - - - - 
+: 1.101 ms
+Hopformer Cache Segment: 0.179 ms
+Total Attention {'key': 1425, 'value': 1425, 'attn_wts': 0, 'len': 1425}
+- - - - - - - - - - - - - - - - - - - 
+: 2.484 ms
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total KFLOPs  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                            aten::copy_         4.55%      72.319us        10.05%     159.838us      15.984us     153.983us        51.31%     153.983us      15.398us           0 b           0 b           0 b           0 b            10            --  
+                                               aten::to         0.98%      15.584us        15.31%     243.421us      22.129us       0.000us         0.00%     150.335us      13.667us           0 b           0 b      23.21 Mb           0 b            11            --  
+                                         aten::_to_copy         3.13%      49.728us        14.33%     227.837us      28.480us       0.000us         0.00%     150.335us      18.792us           0 b           0 b      23.21 Mb           0 b             8            --  
+                         Memcpy DtoH (Device -> Pinned)         0.00%       0.000us         0.00%       0.000us       0.000us      82.879us        27.61%      82.879us      41.439us           0 b           0 b           0 b           0 b             2            --  
+                                           aten::matmul         5.96%      94.752us        29.76%     473.083us      67.583us       0.000us         0.00%      65.727us       9.390us           0 b           0 b     118.00 Kb           0 b             7            --  
+                         Memcpy HtoD (Pinned -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us      62.208us        20.73%      62.208us      31.104us           0 b           0 b           0 b           0 b             2            --  
+                                              aten::cat         4.62%      73.503us         7.75%     123.230us      24.646us      54.335us        18.10%      54.335us      10.867us           0 b           0 b      22.28 Mb      22.28 Mb             5            --  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us      45.759us        15.25%      45.759us      22.880us           0 b           0 b           0 b           0 b             2            --  
+                                           aten::linear         0.82%      12.960us        19.42%     308.701us      77.175us       0.000us         0.00%      45.248us      11.312us           0 b           0 b      20.00 Kb           0 b             4            --  
+                                               aten::mm         7.90%     125.597us        12.33%     196.029us      49.007us      45.248us        15.08%      45.248us      11.312us           0 b           0 b      20.00 Kb      20.00 Kb             4     83886.080  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.590ms
+Self CUDA time total: 300.124us
+
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1426, 'value': 1426, 'attn_wts': 0, 'len': 1426}
+- - - - - - - - - - - - - - - - - - - 
+: 1.109 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1427, 'value': 1427, 'attn_wts': 0, 'len': 1427}
+- - - - - - - - - - - - - - - - - - - 
+: 1.098 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1428, 'value': 1428, 'attn_wts': 0, 'len': 1428}
+- - - - - - - - - - - - - - - - - - - 
+: 1.062 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1429, 'value': 1429, 'attn_wts': 0, 'len': 1429}
+- - - - - - - - - - - - - - - - - - - 
+: 1.107 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1430, 'value': 1430, 'attn_wts': 0, 'len': 1430}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1431, 'value': 1431, 'attn_wts': 0, 'len': 1431}
+- - - - - - - - - - - - - - - - - - - 
+: 1.077 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1432, 'value': 1432, 'attn_wts': 0, 'len': 1432}
+- - - - - - - - - - - - - - - - - - - 
+: 1.093 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1433, 'value': 1433, 'attn_wts': 0, 'len': 1433}
+- - - - - - - - - - - - - - - - - - - 
+: 1.092 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1434, 'value': 1434, 'attn_wts': 0, 'len': 1434}
+- - - - - - - - - - - - - - - - - - - 
+: 1.101 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1435, 'value': 1435, 'attn_wts': 0, 'len': 1435}
+- - - - - - - - - - - - - - - - - - - 
+: 1.087 ms
+Hopformer Cache Segment: 0.082 ms
+Total Attention {'key': 1436, 'value': 1436, 'attn_wts': 0, 'len': 1436}
+- - - - - - - - - - - - - - - - - - - 
+: 1.084 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1437, 'value': 1437, 'attn_wts': 0, 'len': 1437}
+- - - - - - - - - - - - - - - - - - - 
+: 1.096 ms
+Hopformer Cache Segment: 0.098 ms
+Total Attention {'key': 1438, 'value': 1438, 'attn_wts': 0, 'len': 1438}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.071 ms
+Total Attention {'key': 1439, 'value': 1439, 'attn_wts': 0, 'len': 1439}
+- - - - - - - - - - - - - - - - - - - 
+: 1.050 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1440, 'value': 1440, 'attn_wts': 0, 'len': 1440}
+- - - - - - - - - - - - - - - - - - - 
+: 1.136 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1441, 'value': 1441, 'attn_wts': 0, 'len': 1441}
+- - - - - - - - - - - - - - - - - - - 
+: 1.080 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1442, 'value': 1442, 'attn_wts': 0, 'len': 1442}
+- - - - - - - - - - - - - - - - - - - 
+: 1.098 ms
+Hopformer Cache Segment: 0.073 ms
+Total Attention {'key': 1443, 'value': 1443, 'attn_wts': 0, 'len': 1443}
+- - - - - - - - - - - - - - - - - - - 
+: 1.074 ms
+Hopformer Cache Segment: 0.083 ms
+Total Attention {'key': 1444, 'value': 1444, 'attn_wts': 0, 'len': 1444}
+- - - - - - - - - - - - - - - - - - - 
+: 1.088 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1445, 'value': 1445, 'attn_wts': 0, 'len': 1445}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.095 ms
+Total Attention {'key': 1446, 'value': 1446, 'attn_wts': 0, 'len': 1446}
+- - - - - - - - - - - - - - - - - - - 
+: 1.095 ms
+Hopformer Cache Segment: 0.093 ms
+Total Attention {'key': 1447, 'value': 1447, 'attn_wts': 0, 'len': 1447}
+- - - - - - - - - - - - - - - - - - - 
+: 1.094 ms
+Hopformer Cache Segment: 0.079 ms
+Total Attention {'key': 1448, 'value': 1448, 'attn_wts': 0, 'len': 1448}
+- - - - - - - - - - - - - - - - - - - 
+: 1.102 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1449, 'value': 1449, 'attn_wts': 0, 'len': 1449}
+- - - - - - - - - - - - - - - - - - - 
+: 1.099 ms
+Hopformer Cache Segment: 0.083 ms
+Total Attention {'key': 1450, 'value': 1450, 'attn_wts': 0, 'len': 1450}
+- - - - - - - - - - - - - - - - - - - 
+: 1.095 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1451, 'value': 1451, 'attn_wts': 0, 'len': 1451}
+- - - - - - - - - - - - - - - - - - - 
+: 1.079 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1452, 'value': 1452, 'attn_wts': 0, 'len': 1452}
+- - - - - - - - - - - - - - - - - - - 
+: 1.095 ms
+Hopformer Cache Segment: 0.080 ms
+Total Attention {'key': 1453, 'value': 1453, 'attn_wts': 0, 'len': 1453}
+- - - - - - - - - - - - - - - - - - - 
+: 1.081 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1454, 'value': 1454, 'attn_wts': 0, 'len': 1454}
+- - - - - - - - - - - - - - - - - - - 
+: 1.078 ms
+Hopformer Cache Segment: 0.081 ms
+Total Attention {'key': 1455, 'value': 1455, 'attn_wts': 0, 'len': 1455}
+- - - - - - - - - - - - - - - - - - - 
+: 1.073 ms
+Hopformer Cache Segment: 0.094 ms
+Total Attention {'key': 1456, 'value': 1456, 'attn_wts': 0, 'len': 1456}
+- - - - - - - - - - - - - - - - - - - 
+: 1.074 ms
+Hopformer Cache Segment: 0.080 ms
+Total Attention {'key': 1457, 'value': 1457, 'attn_wts': 0, 'len': 1457}
+- - - - - - - - - - - - - - - - - - - 
+: 1.077 ms
+Hopformer Cache Segment: 0.083 ms
+Total Attention {'key': 1458, 'value': 1458, 'attn_wts': 0, 'len': 1458}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.082 ms
+Total Attention {'key': 1459, 'value': 1459, 'attn_wts': 0, 'len': 1459}
+- - - - - - - - - - - - - - - - - - - 
+: 1.112 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1460, 'value': 1460, 'attn_wts': 0, 'len': 1460}
+- - - - - - - - - - - - - - - - - - - 
+: 1.077 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1461, 'value': 1461, 'attn_wts': 0, 'len': 1461}
+- - - - - - - - - - - - - - - - - - - 
+: 1.097 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1462, 'value': 1462, 'attn_wts': 0, 'len': 1462}
+- - - - - - - - - - - - - - - - - - - 
+: 1.080 ms
+Hopformer Cache Segment: 0.074 ms
+Total Attention {'key': 1463, 'value': 1463, 'attn_wts': 0, 'len': 1463}
+- - - - - - - - - - - - - - - - - - - 
+: 1.045 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1464, 'value': 1464, 'attn_wts': 0, 'len': 1464}
+- - - - - - - - - - - - - - - - - - - 
+: 1.101 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1465, 'value': 1465, 'attn_wts': 0, 'len': 1465}
+- - - - - - - - - - - - - - - - - - - 
+: 1.085 ms
+Hopformer Cache Segment: 0.096 ms
+Total Attention {'key': 1466, 'value': 1466, 'attn_wts': 0, 'len': 1466}
+- - - - - - - - - - - - - - - - - - - 
+: 1.096 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1467, 'value': 1467, 'attn_wts': 0, 'len': 1467}
+- - - - - - - - - - - - - - - - - - - 
+: 1.080 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1468, 'value': 1468, 'attn_wts': 0, 'len': 1468}
+- - - - - - - - - - - - - - - - - - - 
+: 1.066 ms
+Hopformer Cache Segment: 0.091 ms
+Total Attention {'key': 1469, 'value': 1469, 'attn_wts': 0, 'len': 1469}
+- - - - - - - - - - - - - - - - - - - 
+: 1.079 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1470, 'value': 1470, 'attn_wts': 0, 'len': 1470}
+- - - - - - - - - - - - - - - - - - - 
+: 1.101 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1471, 'value': 1471, 'attn_wts': 0, 'len': 1471}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1472, 'value': 1472, 'attn_wts': 0, 'len': 1472}
+- - - - - - - - - - - - - - - - - - - 
+: 1.104 ms
+Hopformer Cache Segment: 0.101 ms
+Total Attention {'key': 1473, 'value': 1473, 'attn_wts': 0, 'len': 1473}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1474, 'value': 1474, 'attn_wts': 0, 'len': 1474}
+- - - - - - - - - - - - - - - - - - - 
+: 1.095 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1475, 'value': 1475, 'attn_wts': 0, 'len': 1475}
+- - - - - - - - - - - - - - - - - - - 
+: 1.127 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1476, 'value': 1476, 'attn_wts': 0, 'len': 1476}
+- - - - - - - - - - - - - - - - - - - 
+: 1.085 ms
+Hopformer Cache Segment: 0.084 ms
+Total Attention {'key': 1477, 'value': 1477, 'attn_wts': 0, 'len': 1477}
+- - - - - - - - - - - - - - - - - - - 
+: 1.090 ms
+Hopformer Cache Segment: 0.075 ms
+Total Attention {'key': 1478, 'value': 1478, 'attn_wts': 0, 'len': 1478}
+- - - - - - - - - - - - - - - - - - - 
+: 1.050 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1479, 'value': 1479, 'attn_wts': 0, 'len': 1479}
+- - - - - - - - - - - - - - - - - - - 
+: 1.098 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1480, 'value': 1480, 'attn_wts': 0, 'len': 1480}
+- - - - - - - - - - - - - - - - - - - 
+: 1.104 ms
+Hopformer Cache Segment: 0.081 ms
+Total Attention {'key': 1481, 'value': 1481, 'attn_wts': 0, 'len': 1481}
+- - - - - - - - - - - - - - - - - - - 
+: 1.072 ms
+Hopformer Cache Segment: 0.082 ms
+Total Attention {'key': 1482, 'value': 1482, 'attn_wts': 0, 'len': 1482}
+- - - - - - - - - - - - - - - - - - - 
+: 1.077 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1483, 'value': 1483, 'attn_wts': 0, 'len': 1483}
+- - - - - - - - - - - - - - - - - - - 
+: 1.115 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1484, 'value': 1484, 'attn_wts': 0, 'len': 1484}
+- - - - - - - - - - - - - - - - - - - 
+: 1.099 ms
+Hopformer Cache Segment: 0.080 ms
+Total Attention {'key': 1485, 'value': 1485, 'attn_wts': 0, 'len': 1485}
+- - - - - - - - - - - - - - - - - - - 
+: 1.085 ms
+Hopformer Cache Segment: 0.083 ms
+Total Attention {'key': 1486, 'value': 1486, 'attn_wts': 0, 'len': 1486}
+- - - - - - - - - - - - - - - - - - - 
+: 1.112 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1487, 'value': 1487, 'attn_wts': 0, 'len': 1487}
+- - - - - - - - - - - - - - - - - - - 
+: 1.104 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1488, 'value': 1488, 'attn_wts': 0, 'len': 1488}
+- - - - - - - - - - - - - - - - - - - 
+: 1.097 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1489, 'value': 1489, 'attn_wts': 0, 'len': 1489}
+- - - - - - - - - - - - - - - - - - - 
+: 1.093 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1490, 'value': 1490, 'attn_wts': 0, 'len': 1490}
+- - - - - - - - - - - - - - - - - - - 
+: 1.100 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1491, 'value': 1491, 'attn_wts': 0, 'len': 1491}
+- - - - - - - - - - - - - - - - - - - 
+: 1.099 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1492, 'value': 1492, 'attn_wts': 0, 'len': 1492}
+- - - - - - - - - - - - - - - - - - - 
+: 1.088 ms
+Hopformer Cache Segment: 0.073 ms
+Total Attention {'key': 1493, 'value': 1493, 'attn_wts': 0, 'len': 1493}
+- - - - - - - - - - - - - - - - - - - 
+: 1.081 ms
+Hopformer Cache Segment: 0.088 ms
+Total Attention {'key': 1494, 'value': 1494, 'attn_wts': 0, 'len': 1494}
+- - - - - - - - - - - - - - - - - - - 
+: 1.095 ms
+Hopformer Cache Segment: 0.077 ms
+Total Attention {'key': 1495, 'value': 1495, 'attn_wts': 0, 'len': 1495}
+- - - - - - - - - - - - - - - - - - - 
+: 1.070 ms
+Hopformer Cache Segment: 0.090 ms
+Total Attention {'key': 1496, 'value': 1496, 'attn_wts': 0, 'len': 1496}
+- - - - - - - - - - - - - - - - - - - 
+: 1.130 ms
+Hopformer Cache Segment: 0.078 ms
+Total Attention {'key': 1497, 'value': 1497, 'attn_wts': 0, 'len': 1497}
+- - - - - - - - - - - - - - - - - - - 
+: 1.078 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1498, 'value': 1498, 'attn_wts': 0, 'len': 1498}
+- - - - - - - - - - - - - - - - - - - 
+: 1.107 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1499, 'value': 1499, 'attn_wts': 0, 'len': 1499}
+- - - - - - - - - - - - - - - - - - - 
+: 1.088 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1500, 'value': 1500, 'attn_wts': 0, 'len': 1500}
+- - - - - - - - - - - - - - - - - - - 
+: 1.089 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1501, 'value': 1501, 'attn_wts': 0, 'len': 1501}
+- - - - - - - - - - - - - - - - - - - 
+: 1.067 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1502, 'value': 1502, 'attn_wts': 0, 'len': 1502}
+- - - - - - - - - - - - - - - - - - - 
+: 1.112 ms
+Hopformer Cache Segment: 0.092 ms
+Total Attention {'key': 1503, 'value': 1503, 'attn_wts': 0, 'len': 1503}
+- - - - - - - - - - - - - - - - - - - 
+: 1.125 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1504, 'value': 1504, 'attn_wts': 0, 'len': 1504}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.081 ms
+Total Attention {'key': 1505, 'value': 1505, 'attn_wts': 0, 'len': 1505}
+- - - - - - - - - - - - - - - - - - - 
+: 1.082 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1506, 'value': 1506, 'attn_wts': 0, 'len': 1506}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.084 ms
+Total Attention {'key': 1507, 'value': 1507, 'attn_wts': 0, 'len': 1507}
+- - - - - - - - - - - - - - - - - - - 
+: 1.083 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1508, 'value': 1508, 'attn_wts': 0, 'len': 1508}
+- - - - - - - - - - - - - - - - - - - 
+: 1.091 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1509, 'value': 1509, 'attn_wts': 0, 'len': 1509}
+- - - - - - - - - - - - - - - - - - - 
+: 1.095 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1510, 'value': 1510, 'attn_wts': 0, 'len': 1510}
+- - - - - - - - - - - - - - - - - - - 
+: 1.105 ms
+Hopformer Cache Segment: 0.081 ms
+Total Attention {'key': 1511, 'value': 1511, 'attn_wts': 0, 'len': 1511}
+- - - - - - - - - - - - - - - - - - - 
+: 1.083 ms
+Hopformer Cache Segment: 0.087 ms
+Total Attention {'key': 1512, 'value': 1512, 'attn_wts': 0, 'len': 1512}
+- - - - - - - - - - - - - - - - - - - 
+: 1.114 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1513, 'value': 1513, 'attn_wts': 0, 'len': 1513}
+- - - - - - - - - - - - - - - - - - - 
+: 1.134 ms
+Hopformer Cache Segment: 0.085 ms
+Total Attention {'key': 1514, 'value': 1514, 'attn_wts': 0, 'len': 1514}
+- - - - - - - - - - - - - - - - - - - 
+: 1.104 ms
+Hopformer Cache Segment: 0.071 ms
+Total Attention {'key': 1515, 'value': 1515, 'attn_wts': 0, 'len': 1515}
+- - - - - - - - - - - - - - - - - - - 
+: 1.079 ms
+Hopformer Cache Segment: 0.084 ms
+Total Attention {'key': 1516, 'value': 1516, 'attn_wts': 0, 'len': 1516}
+- - - - - - - - - - - - - - - - - - - 
+: 1.078 ms
+Hopformer Cache Segment: 0.086 ms
+Total Attention {'key': 1517, 'value': 1517, 'attn_wts': 0, 'len': 1517}
+- - - - - - - - - - - - - - - - - - - 
+: 1.115 ms
+Hopformer Cache Segment: 0.081 ms
+Total Attention {'key': 1518, 'value': 1518, 'attn_wts': 0, 'len': 1518}
+- - - - - - - - - - - - - - - - - - - 
+: 1.103 ms
+Hopformer Cache Segment: 0.076 ms
+Total Attention {'key': 1519, 'value': 1519, 'attn_wts': 0, 'len': 1519}
+- - - - - - - - - - - - - - - - - - - 
+: 1.068 ms
+Hopformer Cache Segment: 0.089 ms
+Total Attention {'key': 1520, 'value': 1520, 'attn_wts': 0, 'len': 1520}
+- - - - - - - - - - - - - - - - - - - 
+: 1.108 ms
+........Input size: 1024 KV Cache size: {'key': 1520, 'value': 1520, 'attn_wts': 0, 'len': 1520}...........GPU Max Reserved: 15.590227968 GB
+

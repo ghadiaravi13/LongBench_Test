@@ -3,6 +3,7 @@ import datetime
 import json
 import os
 import pandas as pd
+import math
 
 from networkx import cut_size
 
@@ -19,12 +20,14 @@ def parse(args,dataset="NA"):
     files = sorted(os.listdir(f"pred/{model}/"),key=lambda x: "hopf_False" not in x)
     if args.e:
         files = sorted(os.listdir(f"pred_e/{model}/"),key=lambda x: "hopf_False" not in x)
+    files.sort(reverse=False, key=lambda x: "snapkv" in x)
     data_list = [dataset]
     if dataset=="all":
         data_list = ["narrativeqa", "qasper", "multifieldqa_en", "multifieldqa_zh", "hotpotqa", "2wikimqa", "musique", \
                     "dureader", "gov_report", "qmsum", "multi_news", "vcsum", "trec", "triviaqa", "samsum", "lsht", \
                     "passage_count", "passage_retrieval_en", "passage_retrieval_zh", "lcc", "repobench-p"]
     data = dict()
+    # import pdb; pdb.set_trace()
     for dataset in data_list:
         for file in files:
             if ".log" in file and (dataset in file or dataset=="NA"):
@@ -44,38 +47,56 @@ def parse(args,dataset="NA"):
                 
                 # if "hopf_False" in file:
                 #     data = dict()
+
                 data[run_name] = dict()
                 data[run_name]['gen_time(s)'] = []
+                data[run_name]['time_per_token'] = []
                 data[run_name]['inp_size'] = [] if "hopf_False" in file else inp_size
                 data[run_name]['out_size'] = [] if "hopf_False" in file else out_size
                 data[run_name]['resp_len'] = []
                 data[run_name]['KV_size'] = []
                 data[run_name]['attn_size'] = []
                 data[run_name]['total_cache'] = []
+                task_name = run_name.split("ws32")[0][:-1]
+
+                if "snapkv" in run_name and "qcache_new" in run_name: # and  in run_name:
+                    # if data.get(f"{task_name}_ws32_mc2048_snks0_hopf_True_type_sum_fused_opt_qcache_new_lenNone_gblFalse",{}).get('resp_len',[])==[]:
+                    #     data_list.append(run_name)
+                    #     continue
+                    # else:
+                    data[run_name]['resp_len'] = data[f"{task_name}_ws32_mc2048_snks0_hopf_True_type_sum_fused_opt_qcache_new_lenNone_gblFalse"]['resp_len']
 
                 i = 0
                 for l in logfile.readlines():
-                    if(l!="\n"):
-                        curr_time = datetime.datetime.strptime(l.split(" - ")[0], "%Y-%m-%d %H:%M:%S,%f").timestamp()
-                        data[run_name]['gen_time(s)'].append(curr_time - last_time)
-                        if "hopf_False" in file:
-                            data[run_name]['inp_size'].append(int(l.split("Input size: ")[1].split(" ")[0]))
-                            data[run_name]['out_size'].append(int(l.split("key': ")[1].split(",")[0]) - int(l.split("Input size: ")[1].split(" ")[0]))
-                        try:
-                            data[run_name]['resp_len'].append(int(l.split("len': ")[1].split("}")[0]))
-                        except IndexError:
-                            data[run_name]['resp_len'].append(data[run_name]['out_size'][-1])
-                        data[run_name]['KV_size'].append(4 * hid_dim_per_head * n_key_heads * n_layers * int(l.split("key': ")[1].split(",")[0]) / 1000000)
-                        # if "hopf_False" in file:
-                        #     data[run_name]['attn_size'].append(4 * n_attn_heads * n_layers * data[run_name]['out_size'][i] * int(l.split("attn_wts': ")[1].split("}")[0]) / 1000000)
-                        # else:
-                        try:
-                            data[run_name]['attn_size'].append(4 * n_key_heads * n_layers * int(l.split("key': ")[1].split(",")[0]) * int(l.split("attn_wts': ")[1].split(",")[0]) / 1000000)
-                        except ValueError: #for older logs, len is missing, so attn_wts is the last item
-                            data[run_name]['attn_size'].append(4 * n_key_heads * n_layers * int(l.split("key': ")[1].split(",")[0]) * int(l.split("attn_wts': ")[1].split("}")[0]) / 1000000)
-                        data[run_name]['total_cache'].append(data[run_name]['KV_size'][-1] + data[run_name]['attn_size'][-1])
-                        last_time = curr_time
-                        i+=1
+                    try:
+                        if(l!="\n"):
+                            curr_time = datetime.datetime.strptime(l.split(" - ")[0], "%Y-%m-%d %H:%M:%S,%f").timestamp()
+                            data[run_name]['gen_time(s)'].append(curr_time - last_time)
+                            if "hopf_False" in file:
+                                data[run_name]['inp_size'].append(int(l.split("Input size: ")[1].split(" ")[0]))
+                                data[run_name]['out_size'].append(int(l.split("key': ")[1].split(",")[0]) - int(l.split("Input size: ")[1].split(" ")[0]))
+                            try:
+                                if not("snapkv" in run_name and "qcache" in run_name):
+                                    data[run_name]['resp_len'].append(int(l.split("len': ")[1].split("}")[0]))
+                            except IndexError:
+                                if not("snapkv" in run_name and "qcache" in run_name):
+                                    data[run_name]['resp_len'].append(data[run_name]['out_size'][-1])
+                            try:
+                                data[run_name]['time_per_token'].append(data[run_name]['gen_time(s)'][i] / data[run_name]['resp_len'][i])
+                            except:
+                                data[run_name]['time_per_token'].append(math.nan)
+                            data[run_name]['KV_size'].append(4 * hid_dim_per_head * n_key_heads * n_layers * int(l.split("key': ")[1].split(",")[0]) / 1000000)
+                            # if "hopf_False" in file:
+                            #     data[run_name]['attn_size'].append(4 * n_attn_heads * n_layers * data[run_name]['out_size'][i] * int(l.split("attn_wts': ")[1].split("}")[0]) / 1000000)
+                            # else:
+                            try:
+                                data[run_name]['attn_size'].append(4 * n_key_heads * n_layers * int(l.split("key': ")[1].split(",")[0]) * int(l.split("attn_wts': ")[1].split(",")[0]) / 1000000)
+                            except ValueError: #for older logs, len is missing, so attn_wts is the last item
+                                data[run_name]['attn_size'].append(4 * n_key_heads * n_layers * int(l.split("key': ")[1].split(",")[0]) * int(l.split("attn_wts': ")[1].split("}")[0]) / 1000000)
+                            data[run_name]['total_cache'].append(data[run_name]['KV_size'][-1] + data[run_name]['attn_size'][-1])
+                            last_time = curr_time
+                            i+=1
+                    except ZeroDivisionError: continue
                 inp_size = data[run_name]['inp_size']
                 out_size = data[run_name]['out_size']
     return data
@@ -114,6 +135,12 @@ def main():
     for c in df.columns:
         if "total_cache" in c:
             cache_data.loc["ws"+c[0].split("_ws")[1]][c[0].split("_ws")[0]] = sum(df[c])
+    
+    time_data = pd.DataFrame(index=configs,columns=data_names)
+    for c in df.columns:
+        if "time_per_token" in c:
+            time_data.loc["ws"+c[0].split("_ws")[1]][c[0].split("_ws")[0]] = sum(df[c][1:].dropna())
+            # time_data.loc[c[0]][args.model] = sum(df[c][1:].dropna())
 
     if args.e:
         with open(f"pred_e/{args.model}/{args.dataset}_parsed_log_data.json","w") as f:
@@ -147,6 +174,14 @@ def main():
             except FileNotFoundError:
                 with pd.ExcelWriter(f"pred/{args.dataset}_cache_data.xlsx",mode='w') as writer:
                     cache_data.to_excel(writer,sheet_name=args.model)
+            
+            try:
+                with pd.ExcelWriter(f"pred/{args.dataset}_time_data.xlsx",mode='a',if_sheet_exists='replace') as writer:
+                    time_data.to_excel(writer,sheet_name=args.model)
+            except FileNotFoundError:
+                with pd.ExcelWriter(f"pred/{args.dataset}_time_data.xlsx",mode='w') as writer:
+                    time_data.to_excel(writer,sheet_name=args.model)
+
             print(f"Successfully parsed logs")
         f.close()
     # except Exception as e:

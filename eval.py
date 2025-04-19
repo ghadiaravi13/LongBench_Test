@@ -42,6 +42,7 @@ dataset2metric = {
 def parse_args(args=None):
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', type=str, default=None)
+    parser.add_argument('--pred_path', type=str, default="pred")
     parser.add_argument('--ablation', action='store_true', help="Evaluate on LongBench albation")
     parser.add_argument('--e', action='store_true', help="Evaluate on LongBench-E")
     return parser.parse_args(args)
@@ -81,13 +82,14 @@ def scorer(dataset, predictions, answers, all_classes):
 
 if __name__ == '__main__':
     args = parse_args()
+    pred_path = args.pred_path
     scores = dict()
     if args.ablation:
         path = f"pred_mem/{args.model}/"
     elif args.e:
         path = f"pred_e/{args.model}/"
     else:
-        path = f"pred/{args.model}/"
+        path = f"{pred_path}/{args.model}/"
     all_files = os.listdir(path)
     print("Evaluating on:", all_files)
     for filename in all_files:
@@ -123,6 +125,6 @@ if __name__ == '__main__':
     elif args.e:
         out_path = f"pred_e/{args.model}/result.json"
     else:
-        out_path = f"pred/{args.model}/result.json"
+        out_path = f"{pred_path}/{args.model}/result.json"
     with open(out_path, "w") as f:
         json.dump(scores, f, ensure_ascii=False, indent=4)

@@ -1,0 +1,1871 @@
+Hopformer is: None
+Offloaded Cache....
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 2.765 ms
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total KFLOPs  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                           aten::matmul         3.99%      78.206us        18.88%     370.299us      74.060us       0.000us         0.00%     342.362us      68.472us           0 b           0 b      61.54 Mb           0 b             5            --  
+                                           aten::linear         0.80%      15.648us        18.09%     354.843us      88.711us       0.000us         0.00%     339.002us      84.750us           0 b           0 b      60.78 Mb           0 b             4            --  
+                                               aten::mm         7.36%     144.414us        10.90%     213.694us      53.424us     339.002us        34.10%     339.002us      84.750us           0 b           0 b      60.78 Mb      60.78 Mb             4  261053480.960  
+                                          FlashAttnFunc         4.24%      83.103us        14.99%     293.981us     293.981us       0.000us         0.00%     318.970us     318.970us           0 b           0 b      24.31 Mb    -389.50 Kb             1            --  
+                        flash_attn::_flash_attn_forward         8.09%     158.687us        10.49%     205.726us     205.726us     318.970us        32.09%     318.970us     318.970us           0 b           0 b      24.69 Mb           0 b             1            --  
+void flash_fwd_kernel<Flash_fwd_kernel_traits<128, 1...         0.00%       0.000us         0.00%       0.000us       0.000us     318.970us        32.09%     318.970us     318.970us           0 b           0 b           0 b           0 b             1            --  
+              nvjet_hsh_192x176_64x4_1x2_h_bz_coopB_TNT         0.00%       0.000us         0.00%       0.000us       0.000us     267.196us        26.88%     267.196us     133.598us           0 b           0 b           0 b           0 b             2            --  
+                                              aten::mul         2.92%      57.184us         4.75%      93.248us      23.312us      91.711us         9.23%      91.711us      22.928us           0 b           0 b      60.78 Mb      60.78 Mb             4     31866.880  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us      91.711us         9.23%      91.711us      22.928us           0 b           0 b           0 b           0 b             4            --  
+                                              aten::cat         2.63%      51.520us         4.00%      78.431us      26.144us      76.798us         7.73%      76.798us      25.599us           0 b           0 b      32.08 Mb      32.08 Mb             3            --  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.961ms
+Self CUDA time total: 993.998us
+
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 2.167 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.313 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.249 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.247 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.254 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.209 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.221 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.223 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.230 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.224 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.167 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.221 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.239 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.213 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.224 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.176 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.198 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.192 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.224 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.190 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.207 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.197 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.205 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.190 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.204 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.184 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.198 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.211 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.223 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.220 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.187 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.212 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.203 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.197 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.201 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.182 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.190 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.192 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.193 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.227 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.213 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.220 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.230 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.207 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.249 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.211 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.239 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.267 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.210 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.223 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.223 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.248 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.255 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.213 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.254 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.239 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.248 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.257 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.244 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.255 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.263 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.222 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.255 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.250 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.244 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.251 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.232 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.240 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.229 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.249 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.241 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.264 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.204 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.222 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.224 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.220 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.247 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.240 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.222 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.224 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.221 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.176 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.191 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.205 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.186 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.219 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.256 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.206 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.219 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.222 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.203 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.175 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.211 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.198 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.189 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.196 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.222 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.210 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.238 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.196 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.201 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.198 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.206 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.222 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.206 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.207 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.193 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.220 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.204 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.195 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.202 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.231 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.193 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.210 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.210 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.239 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.230 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.234 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.222 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.242 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.229 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.222 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.202 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.194 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.233 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.205 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.198 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.188 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.213 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.194 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.186 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.200 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.232 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.206 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.201 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.212 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.207 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.215 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.191 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.229 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.217 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.176 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.221 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.190 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.246 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.209 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.229 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.203 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.205 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.209 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.186 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.213 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.240 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.219 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.205 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.206 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.193 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.206 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.219 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.215 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.223 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.192 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.203 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.197 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.177 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.205 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.215 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.237 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.236 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.229 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.237 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.204 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.189 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.217 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.209 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.186 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.233 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.185 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.229 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.196 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.222 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.221 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.206 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.200 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.224 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.230 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.198 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.182 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.205 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.232 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.211 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.186 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.213 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.167 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.232 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.212 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.203 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.212 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.165 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.179 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.220 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.191 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.221 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.203 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.221 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.193 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.217 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.234 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.225 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.217 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.201 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.210 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.187 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.200 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.219 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.191 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.219 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.198 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.209 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.205 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.174 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.192 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.187 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.179 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.223 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.232 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.204 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.206 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.210 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.290 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.179 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.215 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.208 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.225 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.205 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.197 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.202 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.244 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.180 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.217 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.223 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.255 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.201 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.199 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.188 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.213 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.199 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.234 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.269 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.198 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.309 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.261 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.242 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.250 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.237 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.224 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.245 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.221 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.264 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.256 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.234 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.209 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.247 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.234 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.248 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.232 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.206 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.227 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.196 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.208 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.233 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.237 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.207 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.215 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.244 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.223 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.231 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.236 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.188 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.269 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.237 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.235 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.243 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.246 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.200 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.210 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.249 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.246 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.210 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.206 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.209 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.225 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.238 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.242 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.241 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.235 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.246 ms
+........Input size: 3112 KV Cache size: {'key': 0, 'value': 0, 'attn_wts': 0, 'len': 0}...........GPU Max Reserved: 16.52555776 GB
+
+Offloaded Cache....
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 2.861 ms
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total KFLOPs  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                           aten::matmul         4.43%      83.038us        19.95%     373.789us      74.758us       0.000us         0.00%     211.423us      42.285us           0 b           0 b      38.42 Mb           0 b             5            --  
+                                           aten::linear         0.91%      17.056us        18.75%     351.324us      87.831us       0.000us         0.00%     208.127us      52.032us           0 b           0 b      37.95 Mb           0 b             4            --  
+                                               aten::mm         7.97%     149.279us        11.01%     206.271us      51.568us     208.127us        36.07%     208.127us      52.032us           0 b           0 b      37.95 Mb      37.95 Mb             4  160809615.360  
+              nvjet_hsh_192x160_64x4_1x2_h_bz_coopB_TNT         0.00%       0.000us         0.00%       0.000us       0.000us     162.847us        28.22%     162.847us      81.423us           0 b           0 b           0 b           0 b             2            --  
+                                          FlashAttnFunc         3.96%      74.271us        16.01%     299.965us     299.965us       0.000us         0.00%     145.887us     145.887us           0 b           0 b      14.98 Mb    -240.50 Kb             1            --  
+                        flash_attn::_flash_attn_forward         9.20%     172.351us        11.80%     221.022us     221.022us     145.887us        25.28%     145.887us     145.887us           0 b           0 b      15.21 Mb           0 b             1            --  
+void flash_fwd_kernel<Flash_fwd_kernel_traits<128, 1...         0.00%       0.000us         0.00%       0.000us       0.000us     145.887us        25.28%     145.887us     145.887us           0 b           0 b           0 b           0 b             1            --  
+                                              aten::mul         3.57%      66.880us         5.79%     108.543us      27.136us      58.623us        10.16%      58.623us      14.656us           0 b           0 b      37.95 Mb      37.95 Mb             4     19630.080  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us      58.623us        10.16%      58.623us      14.656us           0 b           0 b           0 b           0 b             4            --  
+                                              aten::cat         3.10%      57.984us         4.83%      90.528us      30.176us      50.942us         8.83%      50.942us      16.981us           0 b           0 b      19.91 Mb      19.91 Mb             3            --  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.873ms
+Self CUDA time total: 577.018us
+
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 2.007 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.337 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.240 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.260 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.278 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.235 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.230 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.261 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.233 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.211 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.261 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.219 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.230 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.232 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.238 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.258 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.241 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.238 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.225 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.230 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.219 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.231 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.247 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.232 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.229 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.210 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.193 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.220 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.205 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.236 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.237 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.207 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.237 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.236 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.263 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.256 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.251 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.219 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.244 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.227 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.255 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.231 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.223 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.272 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.217 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.256 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.242 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.208 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.240 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.224 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.236 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.226 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.260 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.254 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.240 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.187 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.256 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.233 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.219 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.254 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.230 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.245 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.210 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.257 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.229 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.262 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.258 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.263 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.237 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.235 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.246 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.214 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.230 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.236 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.224 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.224 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.228 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.248 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.245 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.235 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.235 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.235 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.246 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.234 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.248 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.209 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.231 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.218 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.200 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.240 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.215 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.212 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.229 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.191 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.209 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.188 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.216 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.208 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.258 ms
+
+- - - - - - - - - - - - - - - - - - - 
+
+Flash Attention: 1.195 ms
